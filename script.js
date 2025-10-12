@@ -9,19 +9,30 @@ const words = [
 ];
 
 let currentWord = "";
+let startTime = null;
 
 const wordBox = document.getElementById("wordBox");
 const generateBtn = document.getElementById("generateBtn");
 const giveUpBtn = document.getElementById("giveUpBtn");
 const guessInput = document.getElementById("guessInput");
+const submitBtn = document.getElementById("submitBtn");
+const results = document.getElementById("results");
+const wpmDisplay = document.getElementById("wpmDisplay");
 
 // Only allow letters (no spaces, numbers, or special characters)
 guessInput.addEventListener("input", () => {
   guessInput.value = guessInput.value.replace(/[^a-zA-Z]/g, "");
-});
 
-const submitBtn = document.getElementById("submitBtn");
-const results = document.getElementById("results");
+  // initialize start time on first input
+  if (!startTime) startTime = new Date();
+
+  // calculate WPM
+  const typedChars = guessInput.value.length;
+  const minutes = (new Date() - startTime) / 1000 / 60;
+  const wpm = minutes > 0 ? Math.round((typedChars / 5) / minutes) : 0;
+
+  wpmDisplay.textContent = `${wpm} /wpm`;
+});
 
 function shuffleWord(word) {
   let arr = word.split('');
@@ -39,6 +50,9 @@ function generateWord() {
   guessInput.value = "";
   guessInput.focus();
   results.innerHTML = "";
+
+  startTime = null;        // reset WPM timer
+  wpmDisplay.textContent = ". . . /wpm"; // reset display
 }
 
 function checkGuess() {
@@ -67,6 +81,7 @@ function checkGuess() {
     overlay.classList.add("correct-overlay");
     overlay.textContent = "Correct!";
     document.body.appendChild(overlay);
+
     setTimeout(() => {
       document.body.removeChild(overlay);
       generateWord();
@@ -94,11 +109,8 @@ guessInput.addEventListener("keydown", (e) => {
   if (e.key === "Enter") checkGuess();
 });
 
-// ------------------------
 // How To Play button
-// ------------------------
 const howToPlayBtn = document.getElementById("howToPlayBtn");
-
 howToPlayBtn.addEventListener("click", () => {
   alert(
     "How To Play:\n\n" +
@@ -110,8 +122,6 @@ howToPlayBtn.addEventListener("click", () => {
 });
 
 const privacyBtn = document.getElementById("privacyBtn");
-
 privacyBtn.addEventListener("click", () => {
   window.location.href = "/policy/privacy.html";
 });
-
