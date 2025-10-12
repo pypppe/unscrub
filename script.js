@@ -10,6 +10,8 @@ const words = [
 
 let currentWord = "";
 let startTime = null;
+let typingTimer = null;
+const TYPING_PAUSE = 1500;
 
 const wordBox = document.getElementById("wordBox");
 const generateBtn = document.getElementById("generateBtn");
@@ -21,11 +23,23 @@ const wpmDisplay = document.getElementById("wpmDisplay");
 
 guessInput.addEventListener("input", () => {
   guessInput.value = guessInput.value.replace(/[^a-zA-Z]/g, "");
+
+  if (!startTime) startTime = new Date();
+
+  clearTimeout(typingTimer);
+  typingTimer = setTimeout(() => {
+    calculateWPM();
+  }, TYPING_PAUSE);
 });
 
-guessInput.addEventListener("focus", () => {
-  if (!startTime) startTime = new Date();
-});
+function calculateWPM() {
+  if (!startTime) return;
+  const timeMinutes = (new Date() - startTime) / 1000 / 60;
+  const typedChars = guessInput.value.length;
+  const wordsTyped = typedChars / 5;
+  const wpm = timeMinutes > 0 ? Math.round(wordsTyped / timeMinutes) : 0;
+  wpmDisplay.textContent = `${wpm} /wpm`;
+}
 
 function shuffleWord(word) {
   let arr = word.split('');
@@ -44,20 +58,16 @@ function generateWord() {
   guessInput.focus();
   results.innerHTML = "";
 
-  startTime = null;        // reset WPM timer
-  wpmDisplay.textContent = ". . . /wpm"; // reset display
+  startTime = null;
+  wpmDisplay.textContent = ". . . /wpm";
+  clearTimeout(typingTimer);
 }
 
 function checkGuess() {
   const guess = guessInput.value.trim().toLowerCase();
   if (!guess) return;
 
-  if (startTime) {
-    const timeMinutes = (new Date() - startTime) / 1000 / 60;
-    const wordsTyped = guess.length / 5;
-    const wpm = timeMinutes > 0 ? Math.round(wordsTyped / timeMinutes) : 0;
-    wpmDisplay.textContent = `${wpm} /wpm`;
-  }
+  calculateWPM(); // calculate WPM immediately on submit
 
   const resultItem = document.createElement("div");
   resultItem.classList.add("result-item");
@@ -89,6 +99,7 @@ function checkGuess() {
   }
 
   startTime = null; // reset timer for next word
+  clearTimeout(typingTimer);
 }
 
 function giveUp() {
@@ -102,7 +113,8 @@ function giveUp() {
     generateWord();
   }, 2000);
 
-  startTime = null; // reset timer even if user gives up
+  startTime = null;
+  clearTimeout(typingTimer);
 }
 
 generateBtn.addEventListener("click", generateWord);
