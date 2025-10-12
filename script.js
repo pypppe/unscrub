@@ -19,19 +19,12 @@ const submitBtn = document.getElementById("submitBtn");
 const results = document.getElementById("results");
 const wpmDisplay = document.getElementById("wpmDisplay");
 
-// Only allow letters (no spaces, numbers, or special characters)
 guessInput.addEventListener("input", () => {
   guessInput.value = guessInput.value.replace(/[^a-zA-Z]/g, "");
+});
 
-  // initialize start time on first input
+guessInput.addEventListener("focus", () => {
   if (!startTime) startTime = new Date();
-
-  // calculate WPM
-  const typedChars = guessInput.value.length;
-  const minutes = (new Date() - startTime) / 1000 / 60;
-  const wpm = minutes > 0 ? Math.round((typedChars / 5) / minutes) : 0;
-
-  wpmDisplay.textContent = `${wpm} /wpm`;
 });
 
 function shuffleWord(word) {
@@ -58,6 +51,13 @@ function generateWord() {
 function checkGuess() {
   const guess = guessInput.value.trim().toLowerCase();
   if (!guess) return;
+
+  if (startTime) {
+    const timeMinutes = (new Date() - startTime) / 1000 / 60;
+    const wordsTyped = guess.length / 5;
+    const wpm = timeMinutes > 0 ? Math.round(wordsTyped / timeMinutes) : 0;
+    wpmDisplay.textContent = `${wpm} /wpm`;
+  }
 
   const resultItem = document.createElement("div");
   resultItem.classList.add("result-item");
@@ -87,6 +87,8 @@ function checkGuess() {
       generateWord();
     }, 1500);
   }
+
+  startTime = null; // reset timer for next word
 }
 
 function giveUp() {
@@ -99,9 +101,10 @@ function giveUp() {
     document.body.removeChild(overlay);
     generateWord();
   }, 2000);
+
+  startTime = null; // reset timer even if user gives up
 }
 
-// Event listeners
 generateBtn.addEventListener("click", generateWord);
 submitBtn.addEventListener("click", checkGuess);
 giveUpBtn.addEventListener("click", giveUp);
@@ -109,7 +112,6 @@ guessInput.addEventListener("keydown", (e) => {
   if (e.key === "Enter") checkGuess();
 });
 
-// How To Play button
 const howToPlayBtn = document.getElementById("howToPlayBtn");
 howToPlayBtn.addEventListener("click", () => {
   alert(
