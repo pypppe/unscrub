@@ -10,8 +10,7 @@ const words = [
 
 let currentWord = "";
 let startTime = null;
-let typingTimer = null;
-const TYPING_PAUSE = 1500;
+let totalCharsTyped = 0;
 
 const wordBox = document.getElementById("wordBox");
 const generateBtn = document.getElementById("generateBtn");
@@ -21,25 +20,20 @@ const submitBtn = document.getElementById("submitBtn");
 const results = document.getElementById("results");
 const wpmDisplay = document.getElementById("wpmDisplay");
 
-guessInput.addEventListener("input", () => {
+guessInput.addEventListener("input", (e) => {
+
+  const oldLength = guessInput.value.length;
   guessInput.value = guessInput.value.replace(/[^a-zA-Z]/g, "");
+  const newLength = guessInput.value.length;
+
+  totalCharsTyped += (newLength - oldLength);
 
   if (!startTime) startTime = new Date();
 
-  clearTimeout(typingTimer);
-  typingTimer = setTimeout(() => {
-    calculateWPM();
-  }, TYPING_PAUSE);
-});
-
-function calculateWPM() {
-  if (!startTime) return;
-  const timeMinutes = (new Date() - startTime) / 1000 / 60;
-  const typedChars = guessInput.value.length;
-  const wordsTyped = typedChars / 5;
-  const wpm = timeMinutes > 0 ? Math.round(wordsTyped / timeMinutes) : 0;
+  const minutes = (new Date() - startTime) / 1000 / 60;
+  const wpm = minutes > 0 ? Math.round((totalCharsTyped / 5) / minutes) : 0;
   wpmDisplay.textContent = `${wpm} /wpm`;
-}
+});
 
 function shuffleWord(word) {
   let arr = word.split('');
@@ -59,15 +53,13 @@ function generateWord() {
   results.innerHTML = "";
 
   startTime = null;
+  totalCharsTyped = 0;
   wpmDisplay.textContent = ". . . /wpm";
-  clearTimeout(typingTimer);
 }
 
 function checkGuess() {
   const guess = guessInput.value.trim().toLowerCase();
   if (!guess) return;
-
-  calculateWPM(); // calculate WPM immediately on submit
 
   const resultItem = document.createElement("div");
   resultItem.classList.add("result-item");
@@ -97,9 +89,6 @@ function checkGuess() {
       generateWord();
     }, 1500);
   }
-
-  startTime = null; // reset timer for next word
-  clearTimeout(typingTimer);
 }
 
 function giveUp() {
@@ -112,11 +101,9 @@ function giveUp() {
     document.body.removeChild(overlay);
     generateWord();
   }, 2000);
-
-  startTime = null;
-  clearTimeout(typingTimer);
 }
 
+// Event listeners
 generateBtn.addEventListener("click", generateWord);
 submitBtn.addEventListener("click", checkGuess);
 giveUpBtn.addEventListener("click", giveUp);
@@ -124,6 +111,7 @@ guessInput.addEventListener("keydown", (e) => {
   if (e.key === "Enter") checkGuess();
 });
 
+// How To Play button
 const howToPlayBtn = document.getElementById("howToPlayBtn");
 howToPlayBtn.addEventListener("click", () => {
   alert(
