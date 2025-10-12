@@ -10,7 +10,6 @@ const words = [
 
 let currentWord = "";
 let startTime = null;
-let totalCharsTyped = 0;
 
 const wordBox = document.getElementById("wordBox");
 const generateBtn = document.getElementById("generateBtn");
@@ -20,18 +19,18 @@ const submitBtn = document.getElementById("submitBtn");
 const results = document.getElementById("results");
 const wpmDisplay = document.getElementById("wpmDisplay");
 
-guessInput.addEventListener("input", (e) => {
-
-  const oldLength = guessInput.value.length;
+// Only allow letters (no spaces, numbers, or special characters)
+guessInput.addEventListener("input", () => {
   guessInput.value = guessInput.value.replace(/[^a-zA-Z]/g, "");
-  const newLength = guessInput.value.length;
 
-  totalCharsTyped += (newLength - oldLength);
-
+  // initialize start time on first input
   if (!startTime) startTime = new Date();
 
+  // calculate WPM
+  const typedChars = guessInput.value.length;
   const minutes = (new Date() - startTime) / 1000 / 60;
-  const wpm = minutes > 0 ? Math.round((totalCharsTyped / 5) / minutes) : 0;
+  const wpm = minutes > 0 ? Math.round((typedChars / 5) / minutes) : 0;
+
   wpmDisplay.textContent = `${wpm} /wpm`;
 });
 
@@ -52,9 +51,8 @@ function generateWord() {
   guessInput.focus();
   results.innerHTML = "";
 
-  startTime = null;
-  totalCharsTyped = 0;
-  wpmDisplay.textContent = ". . . /wpm";
+  startTime = null;        // reset WPM timer
+  wpmDisplay.textContent = ". . . /wpm"; // reset display
 }
 
 function checkGuess() {
