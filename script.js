@@ -19,14 +19,11 @@ const submitBtn = document.getElementById("submitBtn");
 const results = document.getElementById("results");
 const wpmDisplay = document.getElementById("wpmDisplay");
 
-// Only allow letters (no spaces, numbers, or special characters)
 guessInput.addEventListener("input", () => {
   guessInput.value = guessInput.value.replace(/[^a-zA-Z]/g, "");
 
-  // initialize start time on first input
   if (!startTime) startTime = new Date();
 
-  // calculate WPM
   const typedChars = guessInput.value.length;
   const minutes = (new Date() - startTime) / 1000 / 60;
   const wpm = minutes > 0 ? Math.round((typedChars / 5) / minutes) : 0;
@@ -43,6 +40,9 @@ function shuffleWord(word) {
   return arr.join('');
 }
 
+guessInput.disabled = true;
+giveUpBtn.disabled = true;
+
 function generateWord() {
   const randomIndex = Math.floor(Math.random() * words.length);
   currentWord = words[randomIndex];
@@ -51,9 +51,14 @@ function generateWord() {
   guessInput.focus();
   results.innerHTML = "";
 
-  startTime = null;        // reset WPM timer
-  wpmDisplay.textContent = ". . . /wpm"; // reset display
+  startTime = null;
+  wpmDisplay.textContent = ". . . /wpm";
+
+  guessInput.disabled = false;
+  giveUpBtn.disabled = false;
 }
+
+let lives = 5;
 
 function checkGuess() {
   const guess = guessInput.value.trim().toLowerCase();
@@ -77,6 +82,8 @@ function checkGuess() {
   guessInput.focus();
 
   if (guess === currentWord) {
+    lives = 5;
+
     const overlay = document.createElement("div");
     overlay.classList.add("correct-overlay");
     overlay.textContent = "Correct!";
@@ -86,6 +93,21 @@ function checkGuess() {
       document.body.removeChild(overlay);
       generateWord();
     }, 1500);
+  } else {
+    lives--;
+
+    if (lives <= 0) {
+      const overlay = document.createElement("div");
+      overlay.classList.add("correct-overlay");
+      overlay.textContent = `Out of lives! The word was: ${currentWord}`;
+      document.body.appendChild(overlay);
+
+      setTimeout(() => {
+        document.body.removeChild(overlay);
+        lives = 5;
+        generateWord();
+      }, 2000);
+    }
   }
 }
 
@@ -101,7 +123,6 @@ function giveUp() {
   }, 2000);
 }
 
-// Event listeners
 generateBtn.addEventListener("click", generateWord);
 submitBtn.addEventListener("click", checkGuess);
 giveUpBtn.addEventListener("click", giveUp);
@@ -109,7 +130,6 @@ guessInput.addEventListener("keydown", (e) => {
   if (e.key === "Enter") checkGuess();
 });
 
-// How To Play button
 const howToPlayBtn = document.getElementById("howToPlayBtn");
 howToPlayBtn.addEventListener("click", () => {
   alert(
@@ -117,7 +137,8 @@ howToPlayBtn.addEventListener("click", () => {
     "1. Press 'Generate' to get a scrambled word.\n" +
     "2. Type your guess in the input box and press 'Enter'.\n" +
     "3. If you give up, press 'I give up' to reveal the word.\n" +
-    "4. Try to unscramble as many words as you can!"
+    "4. Try to unscramble as many words as you can! .\n" +
+    "5. You also have 5 lives. Good Luck!"
   );
 });
 
