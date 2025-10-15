@@ -5,7 +5,7 @@ const words = [
   "winter", "summer", "secret", "bridge", "mountain", "desert", "science", "history",
   "power", "message", "escape", "ocean", "castle", "dragon", "robot", "hero",
   "galaxy", "mirror", "signal", "planet", "system", "hidden", "crystal", "shelter",
-  "rocket", "future"
+  "rocket", "future", "glucose", "starch", "coding", "photosynthesis", "internet"
 ];
 
 let currentWord = "";
