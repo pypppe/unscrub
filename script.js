@@ -170,7 +170,11 @@ function checkGuess() {
   guessInput.focus();
 
   if (guess === currentWord) {
-    lives = 5;
+    // correct guess → gain one life
+    lives++;
+    previousMaxLives = lives;
+
+    updateLivesDisplay();
 
     const overlay = document.createElement("div");
     overlay.classList.add("correct-overlay");
@@ -182,7 +186,9 @@ function checkGuess() {
       generateWord();
     }, 1500);
   } else {
+    // wrong guess → lose one life
     lives--;
+    updateLivesDisplay();
 
     if (lives <= 0) {
       const overlay = document.createElement("div");
@@ -192,12 +198,15 @@ function checkGuess() {
 
       setTimeout(() => {
         document.body.removeChild(overlay);
-        lives = 5;
+        // reset lives to one less than previous max
+        lives = Math.max(previousMaxLives - 1, 1);
+        updateLivesDisplay();
         generateWord();
       }, 2000);
     }
   }
 }
+
 
 function giveUp() {
   if (!currentWord) return;
