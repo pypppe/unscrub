@@ -56,16 +56,15 @@ function generateWord() {
   currentWord = words[randomIndex];
 
   guessInput.value = "";
-  guessInput.focus();
   results.innerHTML = "";
 
   startTime = null;
   wpmDisplay.textContent = ". . . /wpm";
 
-  guessInput.disabled = false;
-  giveUpBtn.disabled = false;
+  // disable typing while animation plays
+  guessInput.disabled = true;
+  giveUpBtn.disabled = true;
 
-  // start jumble animation
   const startTimeAnim = Date.now();
   const duration = 3000; // 3 seconds
   const animationInterval = 80; // speed of shuffling frames
@@ -75,6 +74,11 @@ function generateWord() {
     if (elapsed >= duration) {
       clearInterval(interval);
       wordBox.textContent = shuffleWord(currentWord); // final jumble
+
+      // enable input again
+      guessInput.disabled = false;
+      giveUpBtn.disabled = false;
+      guessInput.focus();
     } else {
       // show random jumble during animation
       const tempWord = shuffleWord(currentWord);
@@ -82,6 +86,7 @@ function generateWord() {
     }
   }, animationInterval);
 }
+
 
 let lives = 5;
 
