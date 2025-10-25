@@ -51,6 +51,9 @@ function shuffleWord(word) {
 guessInput.disabled = true;
 giveUpBtn.disabled = true;
 
+let lives = 5;
+let previousMaxLives = 5; // keeps track of your highest life count
+
 function generateWord() {
   const randomIndex = Math.floor(Math.random() * words.length);
   currentWord = words[randomIndex];
@@ -59,7 +62,7 @@ function generateWord() {
   results.innerHTML = "";
 
   startTime = null;
-  wpmDisplay.textContent = ". . . /wpm";
+  wpmDisplay.textContent = `Lives: ${lives}`;
 
   // disable typing while animation plays
   guessInput.disabled = true;
@@ -80,15 +83,70 @@ function generateWord() {
       giveUpBtn.disabled = false;
       guessInput.focus();
     } else {
-      // show random jumble during animation
       const tempWord = shuffleWord(currentWord);
       wordBox.textContent = tempWord;
     }
   }, animationInterval);
 }
 
+function checkGuess() {
+  const guess = guessInput.value.trim().toLowerCase();
+  if (!guess) return;
 
-let lives = 5;
+  const resultItem = document.createElement("div");
+  resultItem.classList.add("result-item");
+
+  const wordSpan = document.createElement("span");
+  wordSpan.textContent = guess;
+
+  const crossSpan = document.createElement("span");
+  crossSpan.textContent = "❌";
+  crossSpan.style.marginLeft = "8px";
+
+  resultItem.appendChild(wordSpan);
+  resultItem.appendChild(crossSpan);
+  results.appendChild(resultItem);
+
+  guessInput.value = "";
+  guessInput.focus();
+
+  if (guess === currentWord) {
+    // correct guess
+    lives++;
+    previousMaxLives = lives;
+
+    wpmDisplay.textContent = `Lives: ${lives}`;
+
+    const overlay = document.createElement("div");
+    overlay.classList.add("correct-overlay");
+    overlay.textContent = "Correct!";
+    document.body.appendChild(overlay);
+
+    setTimeout(() => {
+      document.body.removeChild(overlay);
+      generateWord();
+    }, 1500);
+  } else {
+    // wrong guess
+    lives--;
+    wpmDisplay.textContent = `Lives: ${lives}`;
+
+    if (lives <= 0) {
+      const overlay = document.createElement("div");
+      overlay.classList.add("correct-overlay");
+      overlay.textContent = `Out of lives! The word was: ${currentWord}`;
+      document.body.appendChild(overlay);
+
+      setTimeout(() => {
+        document.body.removeChild(overlay);
+        // reset lives to one less than previous max
+        lives = Math.max(previousMaxLives - 1, 1);
+        wpmDisplay.textContent = `Lives: ${lives}`;
+        generateWord();
+      }, 2000);
+    }
+  }
+}
 
 function checkGuess() {
   const guess = guessInput.value.trim().toLowerCase();
