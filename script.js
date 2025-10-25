@@ -46,7 +46,7 @@ giveUpBtn.disabled = true;
 function generateWord() {
   const randomIndex = Math.floor(Math.random() * words.length);
   currentWord = words[randomIndex];
-  wordBox.textContent = shuffleWord(currentWord);
+
   guessInput.value = "";
   guessInput.focus();
   results.innerHTML = "";
@@ -56,6 +56,23 @@ function generateWord() {
 
   guessInput.disabled = false;
   giveUpBtn.disabled = false;
+
+  // start jumble animation
+  const startTimeAnim = Date.now();
+  const duration = 3000; // 3 seconds
+  const animationInterval = 80; // speed of shuffling frames
+
+  const interval = setInterval(() => {
+    const elapsed = Date.now() - startTimeAnim;
+    if (elapsed >= duration) {
+      clearInterval(interval);
+      wordBox.textContent = shuffleWord(currentWord); // final jumble
+    } else {
+      // show random jumble during animation
+      const tempWord = shuffleWord(currentWord);
+      wordBox.textContent = tempWord;
+    }
+  }, animationInterval);
 }
 
 let lives = 5;
