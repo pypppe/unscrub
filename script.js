@@ -51,103 +51,6 @@ function shuffleWord(word) {
 guessInput.disabled = true;
 giveUpBtn.disabled = true;
 
-let lives = 5;
-let previousMaxLives = 5; // keeps track of your highest life count
-
-function generateWord() {
-  const randomIndex = Math.floor(Math.random() * words.length);
-  currentWord = words[randomIndex];
-
-  guessInput.value = "";
-  results.innerHTML = "";
-
-  startTime = null;
-  wpmDisplay.textContent = `Lives: ${lives}`;
-
-  // disable typing while animation plays
-  guessInput.disabled = true;
-  giveUpBtn.disabled = true;
-
-  const startTimeAnim = Date.now();
-  const duration = 3000; // 3 seconds
-  const animationInterval = 80; // speed of shuffling frames
-
-  const interval = setInterval(() => {
-    const elapsed = Date.now() - startTimeAnim;
-    if (elapsed >= duration) {
-      clearInterval(interval);
-      wordBox.textContent = shuffleWord(currentWord); // final jumble
-
-      // enable input again
-      guessInput.disabled = false;
-      giveUpBtn.disabled = false;
-      guessInput.focus();
-    } else {
-      const tempWord = shuffleWord(currentWord);
-      wordBox.textContent = tempWord;
-    }
-  }, animationInterval);
-}
-
-function checkGuess() {
-  const guess = guessInput.value.trim().toLowerCase();
-  if (!guess) return;
-
-  const resultItem = document.createElement("div");
-  resultItem.classList.add("result-item");
-
-  const wordSpan = document.createElement("span");
-  wordSpan.textContent = guess;
-
-  const crossSpan = document.createElement("span");
-  crossSpan.textContent = "❌";
-  crossSpan.style.marginLeft = "8px";
-
-  resultItem.appendChild(wordSpan);
-  resultItem.appendChild(crossSpan);
-  results.appendChild(resultItem);
-
-  guessInput.value = "";
-  guessInput.focus();
-
-  if (guess === currentWord) {
-    // correct guess
-    lives++;
-    previousMaxLives = lives;
-
-    wpmDisplay.textContent = `Lives: ${lives}`;
-
-    const overlay = document.createElement("div");
-    overlay.classList.add("correct-overlay");
-    overlay.textContent = "Correct!";
-    document.body.appendChild(overlay);
-
-    setTimeout(() => {
-      document.body.removeChild(overlay);
-      generateWord();
-    }, 1500);
-  } else {
-    // wrong guess
-    lives--;
-    wpmDisplay.textContent = `Lives: ${lives}`;
-
-    if (lives <= 0) {
-      const overlay = document.createElement("div");
-      overlay.classList.add("correct-overlay");
-      overlay.textContent = `Out of lives! The word was: ${currentWord}`;
-      document.body.appendChild(overlay);
-
-      setTimeout(() => {
-        document.body.removeChild(overlay);
-        // reset lives to one less than previous max
-        lives = Math.max(previousMaxLives - 1, 1);
-        wpmDisplay.textContent = `Lives: ${lives}`;
-        generateWord();
-      }, 2000);
-    }
-  }
-}
-
 function checkGuess() {
   const guess = guessInput.value.trim().toLowerCase();
   if (!guess) return;
@@ -206,6 +109,7 @@ function checkGuess() {
     }
   }
 }
+
 
 
 function giveUp() {
