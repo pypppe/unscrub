@@ -46,16 +46,30 @@ giveUpBtn.disabled = true;
 function generateWord() {
   const randomIndex = Math.floor(Math.random() * words.length);
   currentWord = words[randomIndex];
-  wordBox.textContent = shuffleWord(currentWord);
   guessInput.value = "";
   guessInput.focus();
   results.innerHTML = "";
 
   startTime = null;
   wpmDisplay.textContent = ". . . /wpm";
+  guessInput.disabled = true;
+  giveUpBtn.disabled = true;
 
-  guessInput.disabled = false;
-  giveUpBtn.disabled = false;
+  // jumble animation
+  let animationTime = 3000; // 3 seconds
+  let interval = 100; // how fast letters shuffle
+  let elapsed = 0;
+
+  const animation = setInterval(() => {
+    wordBox.textContent = shuffleWord(currentWord);
+    elapsed += interval;
+    if (elapsed >= animationTime) {
+      clearInterval(animation);
+      wordBox.textContent = shuffleWord(currentWord); // final jumble
+      guessInput.disabled = false;
+      giveUpBtn.disabled = false;
+    }
+  }, interval);
 }
 
 let lives = 5;
