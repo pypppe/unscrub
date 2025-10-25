@@ -5,7 +5,15 @@ const words = [
   "winter", "summer", "secret", "bridge", "mountain", "desert", "science", "history",
   "power", "message", "escape", "ocean", "castle", "dragon", "robot", "hero",
   "galaxy", "mirror", "signal", "planet", "system", "hidden", "crystal", "shelter",
-  "rocket", "future", "glucose", "starch", "coding", "photosynthesis", "internet"
+  "rocket", "future", "glucose", "starch", "coding", "photosynthesis", "internet", 
+  "island", "space", "city", "music", "story", "light", "dark", "animal", "team",
+  "bridge", "time", "color", "friendship", "hope", "wave", "fire", "ice", "wind",
+  "stone", "star", "moon", "sun", "sky", "river", "flower", "tree", "path",
+  "cloud", "stormy", "sand", "rain", "snow", "forest", "mountain", "valley",
+  "dreamer", "heroine", "powerful", "tiny", "giant", "brave", "kindness",
+  "truth", "loyalty", "spark", "shine", "heart", "wish", "world", "journey",
+  "spacecraft", "planet", "explorer", "mission", "science", "discovery", "experiment",
+  "adventure", "teamwork", "imagine", "build", "create", "wonder", "learn", "grow"
 ];
 
 let currentWord = "";
