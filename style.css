@@ -210,3 +210,10 @@ button:active {
   z-index: 1000;
 }
 
+/* Align the submit button SVG slightly lower */
+#submitBtn svg {
+  transform: translateY(2px); /* pushes the icon down a little */
+  width: 20px;
+  height: 20px;
+  stroke: #ffffff;
+}
