@@ -43,7 +43,7 @@ guessInput.addEventListener("input", () => {
   const minutes = (new Date() - startTime) / 1000 / 60;
   const wpm = minutes > 0 ? Math.round((typedChars / 5) / minutes) : 0;
 
-  wpmDisplay.textContent = `${wpm} /wpm`;
+  wpmDisplay.textContent = `An Astrarune Website`;
 });
 
 function shuffleWord(word) {
