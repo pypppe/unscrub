@@ -33,7 +33,6 @@ const giveUpBtn = document.getElementById("giveUpBtn");
 const guessInput = document.getElementById("guessInput");
 const submitBtn = document.getElementById("submitBtn");
 const results = document.getElementById("results");
-const wpmDisplay = document.getElementById("wpmDisplay");
 
 guessInput.addEventListener("input", () => {
   guessInput.value = guessInput.value.replace(/[^a-zA-Z]/g, "");
