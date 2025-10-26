@@ -1,12 +1,38 @@
-# Unscrub
+# 🧩 Unscrub
 
-This is the official GitHub for the Unscrub web-game (https://unscrub.astrarune.com), Unscrub is a web-game where you click a button 'Generate', and it gives you a jumbled word, and you have five chances to guess it, if you don't know the word you press 'Show Answer'. If you do not guess it in the five chances, it shows the answer. And repeats the process.
+Welcome to the **official GitHub repository** for [Unscrub](https://unscrub.astrarune.com)!  
+Unscrub is a fun little **web-based word game** where you test your brainpower by unscrambling jumbled words.
 
-# Ads & Promotions.
+---
 
-Advertisements and Promotions ruin Unscrub, Unsrcub is a free website for students & everyone to play for fun, this project was made for fun. Not to profit off.
+## 🎮 How It Works
 
-# Feedback & Updates
+1. Click the **Generate** button.  
+2. You’ll receive a **jumbled word**.  
+3. You have **five chances** to guess it correctly.  
+4. If you’re stuck, click **Show Answer**.  
+5. Once the round ends (win or lose), a new word appears!
 
-I deliever updates often, however you can give me feedback by emailing 'py@astrarune.com', suggestions can also be sent via the same email. You can send emails to 'py@astrarune.com' via OutLook, Gmail, Yahoo! Mail.
-Thank you!
+It’s simple, fast, and perfect for quick breaks or vocabulary practice!
+
+---
+
+## 🚫 Ads & Promotions
+
+We believe ads ruin the fun.  
+**Unscrub** is a **completely free** web game — made **for students and anyone who loves word games**, not for profit.
+
+This project exists purely **for fun and creativity**, not commercialization. ✨
+
+---
+
+## 💌 Feedback & Updates
+
+I release updates often to improve the experience!  
+If you have feedback, ideas, or bug reports, please reach out:
+
+📧 **Email:** [py@astrarune.com](mailto:py@astrarune.com)
+
+You can email via **Outlook**, **Gmail**, or **Yahoo! Mail** — whatever works best for you.
+
+Thank you for playing and supporting Unscrub! 💚
