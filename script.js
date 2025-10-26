@@ -206,32 +206,33 @@ guessInput.addEventListener("keydown", (e) => {
 const howToPlayBtn = document.getElementById("howToPlayBtn");
 
 howToPlayBtn.addEventListener("click", () => {
-  // if popup already exists, remove it first
+  // remove existing popup if it's already open
   const existing = document.getElementById("howToPlayPopup");
   if (existing) existing.remove();
 
+  // create the popup element
   const popup = document.createElement("div");
   popup.id = "howToPlayPopup";
   popup.innerHTML = `
     <strong>how to play:</strong><br><br>
-    1. press 'generate' to get a scrambled word.<br>
-    2. type your guess & press '→'.<br>
-    3. press 'show answer' if you give up.<br>
-    4. try to beat your best streak!<br>
-    5. you have 5 lives.
+    1. press <b>generate</b> to get a scrambled word.<br>
+    2. type your guess and hit <b>→</b> to submit.<br>
+    3. stuck? press <b>show answer</b> to reveal it.<br>
+    4. keep going to beat your best streak!<br>
+    5. you start with <b>5 lives</b> — use them wisely.
   `;
-  
+
   // position it below the button
   const rect = howToPlayBtn.getBoundingClientRect();
   popup.style.top = rect.bottom + window.scrollY + 10 + "px";
   popup.style.left = rect.left + window.scrollX + "px";
-  
+
   document.body.appendChild(popup);
 
-  // show animation
+  // fade in animation
   setTimeout(() => popup.classList.add("show"), 10);
 
-  // hide after 12 seconds
+  // auto-hide after 12 seconds
   setTimeout(() => {
     popup.classList.remove("show");
     setTimeout(() => popup.remove(), 500);
