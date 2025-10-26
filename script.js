@@ -10,7 +10,18 @@ const words = [
   "network", "volume", "chair", "great", "america", "australia", "japan", "italy", "france",
   "russia", "scammer", "india", "transgender", "english", "japanese", "polish", "current", "images",
   "icon", "korea", "boyfriend", "girlfriend", "microwave", "nokia", "lamp", "light", "laptop", "strong",
-  "kitty", "kitten", "meow"
+  "kitty", "kitten", "meow", "banana", "apple", "cookie", "pizza", "burger", "music", "dance", "movie", "story", "book",
+"teacher", "student", "family", "garden", "city", "village", "car", "bus", "train", "plane",
+"cloud", "rain", "snow", "sun", "moon", "star", "animal", "zebra", "tiger", "lion",
+"dog", "cat", "fish", "bird", "egg", "cake", "milk", "bread", "cheese", "sandwich",
+"pencil", "eraser", "paper", "notebook", "desk", "backpack", "clock", "door", "window", "floor",
+"earth", "world", "country", "flag", "music", "video", "photo", "friendship", "happy", "sad",
+"angry", "laugh", "cry", "smile", "jump", "run", "walk", "sleep", "dream", "think",
+"read", "write", "draw", "paint", "color", "play", "game", "toy", "ball", "soccer",
+"basketball", "baseball", "tennis", "swim", "park", "tree", "flower", "grass", "river", "bridge",
+"mountain", "volcano", "forest", "beach", "sea", "island", "boat", "ship", "truck", "bike",
+"mirror", "camera", "keyboard", "mouse", "screen", "music", "song", "battery", "remote", "controller",
+"energy", "powerful", "electric", "science", "experiment", "planet", "space", "rocket", "starship", "astronaut"
 ];
 
 let currentWord = "";
