@@ -34,17 +34,7 @@ const guessInput = document.getElementById("guessInput");
 const submitBtn = document.getElementById("submitBtn");
 const results = document.getElementById("results");
 
-guessInput.addEventListener("input", () => {
-  guessInput.value = guessInput.value.replace(/[^a-zA-Z]/g, "");
 
-  if (!startTime) startTime = new Date();
-
-  const typedChars = guessInput.value.length;
-  const minutes = (new Date() - startTime) / 1000 / 60;
-  const wpm = minutes > 0 ? Math.round((typedChars / 5) / minutes) : 0;
-
-  wpmDisplay.textContent = `An Astrarune Website`;
-});
 
 function shuffleWord(word) {
   let arr = word.split('');
