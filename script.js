@@ -5,7 +5,12 @@ const words = [
   "winter", "summer", "secret", "bridge", "mountain", "desert", "science", "history",
   "power", "message", "escape", "ocean", "castle", "dragon", "robot", "hero",
   "galaxy", "mirror", "signal", "planet", "system", "hidden", "crystal", "shelter",
-  "rocket", "future", "glucose", "starch", "coding", "photosynthesis", "internet"
+  "rocket", "future", "glucose", "starch", "coding", "photosynthesis", "internet", "unscrub",
+  "gay", "water", "chocolate", "windows", "penguin", "phone", "iphone", "explore", "dummy",
+  "network", "volume", "chair", "great", "america", "australia", "japan", "italy", "france",
+  "russia", "scammer", "india", "transgender", "english", "japanese", "polish", "current", "images",
+  "icon", "korea", "boyfriend", "girlfriend", "microwave", "nokia", "lamp", "light", "laptop", "strong",
+  "kitty", "kitten", "meow"
 ];
 
 let currentWord = "";
