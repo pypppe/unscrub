@@ -101,10 +101,22 @@ function checkGuess() {
   if (guess === currentWord) {
     lives = 5;
 
-    const overlay = document.createElement("div");
-    overlay.classList.add("correct-overlay");
-    overlay.textContent = "Correct!";
-    document.body.appendChild(overlay);
+const overlay = document.createElement("div");
+overlay.classList.add("correct-overlay");
+
+overlay.innerHTML = `
+  <svg fill="#44ff00" version="1.1" xmlns="http://www.w3.org/2000/svg"
+       viewBox="0 0 335.765 335.765" width="28" height="28"
+       style="vertical-align: middle; margin-right: 10px;">
+    <g>
+      <polygon points="311.757,41.803 107.573,245.96 23.986,162.364 0,186.393 107.573,293.962 335.765,65.795"></polygon>
+    </g>
+  </svg>
+  Correct!
+`;
+
+document.body.appendChild(overlay);
+
 
     setTimeout(() => {
       document.body.removeChild(overlay);
