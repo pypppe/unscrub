@@ -81,7 +81,6 @@ function generateWord() {
   results.innerHTML = "";
 
   startTime = null;
-  wpmDisplay.textContent = ". . . /wpm";
   guessInput.disabled = true;
   giveUpBtn.disabled = true;
 
