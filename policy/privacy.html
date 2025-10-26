@@ -5,124 +5,114 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Your Data / Twoje dane</title>
   <style>
-    
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
 body, input, button, textarea, select, h1, .word-box, .result-item, #wpmDisplay, .correct-overlay {
   font-family: 'Poppins', "Inter", Arial, sans-serif;
 }
-    body {
-      margin: 0;
-      font-family: "Inter", "Segoe UI", Arial, sans-serif;
-      background-color: #1e1e1e;
-      color: #e0e0e0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-height: 100vh;
-      padding: 0 1rem;
-    }
 
-    h1 {
-      margin-top: 60px;
-      font-size: 2.2rem;
-      text-align: center;
-      color: #f1f1f1;
-      letter-spacing: 1px;
-    }
+body {
+  margin: 0;
+  background-color: #000;
+  color: #e0e0e0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 0 1rem;
+}
 
-    .language-dropdown {
-      position: absolute;
-      top: 15px;
-      left: 15px;
-      background: #2b2b2b;
-      color: #fff;
-      border: 1px solid #444;
-      border-radius: 8px;
-      font-size: 0.95rem;
-      cursor: pointer;
-      outline: none;
-      transition: background 0.3s ease, border-color 0.3s ease;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 6px 10px;
-    }
+h1 {
+  margin-top: 60px;
+  font-size: 2.2rem;
+  text-align: center;
+  color: #fff;
+  letter-spacing: 1px;
+}
 
-    .language-dropdown:hover {
-      background: #3a3a3a;
-      border-color: #666;
-    }
+.language-dropdown {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: #111;
+  color: #fff;
+  border: 1px solid #333;
+  font-size: 0.95rem;
+  cursor: pointer;
+  outline: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+}
 
-    .flag {
-      width: 24px;
-      height: 24px;
-      display: inline-block;
-      vertical-align: middle;
-    }
+.language-dropdown:hover {
+  background: #222;
+  border-color: #555;
+}
 
-    .dropdown-options {
-      position: absolute;
-      top: 45px;
-      left: 15px;
-      background: #2b2b2b;
-      border: 1px solid #444;
-      border-radius: 8px;
-      display: none;
-      flex-direction: column;
-      overflow: hidden;
-      z-index: 100;
-    }
+.flag {
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  vertical-align: middle;
+}
 
-    .dropdown-option {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 6px 10px;
-      cursor: pointer;
-      transition: background 0.2s ease;
-    }
+.dropdown-options {
+  position: absolute;
+  top: 45px;
+  left: 15px;
+  background: #111;
+  border: 1px solid #333;
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 100;
+}
 
-    .dropdown-option:hover {
-      background: #3a3a3a;
-    }
+.dropdown-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  cursor: pointer;
+}
 
-    .container {
-      max-width: 700px;
-      width: 100%;
-      background: #2b2b2b;
-      padding: 40px 30px;
-      margin: 30px 0;
-      border-radius: 14px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-      text-align: left;
-      transition: background 0.3s ease;
-    }
+.dropdown-option:hover {
+  background: #222;
+}
 
-    .container:hover {
-      background: #323232;
-    }
+.container {
+  max-width: 700px;
+  width: 100%;
+  background: #111;
+  padding: 40px 30px;
+  margin: 30px 0;
+  border: 1px solid #333;
+  text-align: left;
+}
 
-    p {
-      font-size: 1rem;
-      line-height: 1.7;
-      margin-bottom: 1.2rem;
-      color: #cfcfcf;
-    }
+p {
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 1.2rem;
+  color: #ccc;
+}
 
-    hr {
-      border: none;
-      border-top: 1px solid #444;
-      margin: 30px 0;
-      width: 80%;
-    }
+hr {
+  border: none;
+  border-top: 1px solid #333;
+  margin: 30px 0;
+  width: 80%;
+}
 
-    footer {
-      margin-bottom: 40px;
-      font-style: italic;
-      color: #aaa;
-      font-size: 0.95rem;
-    }
+footer {
+  margin-bottom: 40px;
+  font-style: italic;
+  color: #aaa;
+  font-size: 0.95rem;
+  text-align: center;
+}
   </style>
 </head>
 <body>
@@ -132,15 +122,11 @@ body, input, button, textarea, select, h1, .word-box, .result-item, #wpmDisplay,
   </div>
   <div class="dropdown-options" id="dropdownOptions">
     <div class="dropdown-option" data-lang="en">
-      <span class="flag">
-        <svg viewBox="0 -4 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g clip-path="url(#clip0_1310_7593)"> <path d="M28 0H0V20H28V0Z" fill="url(#paint0_linear_1310_7593)"></path> <path fill-rule="evenodd" clip-rule="evenodd" d="M12 8H0V12H12V20H16V12H28V8H16V0H12V8Z" fill="url(#paint1_linear_1310_7593)"></path> </g> <defs> <linearGradient id="paint0_linear_1310_7593" x1="14" y1="0" x2="14" y2="20" gradientUnits="userSpaceOnUse"> <stop stop-color="white"></stop> <stop offset="1" stop-color="#F0F0F0"></stop> </linearGradient> <linearGradient id="paint1_linear_1310_7593" x1="14" y1="0" x2="14" y2="20" gradientUnits="userSpaceOnUse"> <stop stop-color="#E82739"></stop> <stop offset="1" stop-color="#CA1A2B"></stop> </linearGradient> <clipPath id="clip0_1310_7593"> <rect width="28" height="20" rx="2" fill="white"></rect> </clipPath> </defs> </g></svg>"/>
-      </span>
+      <span class="flag">🇬🇧</span>
       <span>English</span>
     </div>
     <div class="dropdown-option" data-lang="pl">
-      <span class="flag">
-        <svg viewBox="0 0 36 36"><path fill="#EEE" d="M32 5H4a4 4 0 0 0-4 4v9h36V9a4 4 0 0 0-4-4z"/><path fill="#DC143C" d="M0 27a4 4 0 0 0 4 4h28a4 4 0 0 0 4-4v-9H0v9z"/></svg>
-      </span>
+      <span class="flag">🇵🇱</span>
       <span>Polski</span>
     </div>
   </div>
@@ -151,20 +137,12 @@ body, input, button, textarea, select, h1, .word-box, .result-item, #wpmDisplay,
     <p>thank you for visiting! we promise your information is safe and secure.</p>
   </div>
   <hr>
-<footer id="footer" style="text-align:center; margin-top:20px; color:#aaa; font-size:0.95rem;">
+<footer id="footer">
   keep unscrubbing!
   <span style="display:inline-flex; align-items:center; gap:8px; margin-left:10px;">
     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="24" height="24">
       <g fill="none" fill-rule="evenodd">
-        <g transform="rotate(-10 21.93 -6.645)">
-          <path d="M0,1 C2,0.333333333 3.66666667,0 5,0 C6.33333333,0 7.66666667,0.333333333 9,1 C10.3333333,1.66666667 11.6666667,2 13,2 C14.3333333,2 16,1.66666667 18,1 L18,5 C16,5.66666667 14.3333333,6 13,6 C11.6666667,6 10.3333333,5.66666667 9,5 C7.66666667,4.33333333 6.33333333,4 5,4 C3.66666667,4 2,4.33333333 0,5 L0,1 Z" fill="#FF547F"></path>
-          <path d="M0,4 C2,3.33333333 3.66666667,3 5,3 C6.33333333,3 7.66666667,3.33333333 9,4 C10.3333333,4.66666667 11.6666667,5 13,5 C14.3333333,5 16,4.66666667 18,4 L18,7 C16,7.66666667 14.3333333,8 13,8 C11.6666667,8 10.3333333,7.66666667 9,7 C7.66666667,6.33333333 6.33333333,6 5,6 C3.66666667,6 2,6.33333333 0,7 L0,4 Z" fill="#FFB331"></path>
-          <path d="M0,6 C2,5.33333333 3.66666667,5 5,5 C6.33333333,5 7.66666667,5.33333333 9,6 C10.3333333,6.66666667 11.6666667,7 13,7 C14.3333333,7 16,6.66666667 18,6 L18,9 C16,9.66666667 14.3333333,10 13,10 C11.6666667,10 10.3333333,9.66666667 9,9 C7.66666667,8.33333333 6.33333333,8 5,8 C3.66666667,8 2,8.33333333 0,9 L0,6 Z" fill="#FFD631"></path>
-          <path d="M0,8 C2,7.33333333 3.66666667,7 5,7 C6.33333333,7 7.66666667,7.33333333 9,8 C10.3333333,8.66666667 11.6666667,9 13,9 C14.3333333,9 16,8.66666667 18,8 L18,11 C16,11.6666667 14.3333333,12 13,12 C11.6666667,12 10.3333333,11.6666667 9,11 C7.66666667,10.3333333 6.33333333,10 5,10 C3.66666667,10 2,10.3333333 0,11 L0,8 Z" fill="#31D362"></path>
-          <path d="M0,10 C2,9.33333333 3.66666667,9 5,9 C6.33333333,9 7.66666667,9.33333333 9,10 C10.3333333,10.6666667 11.6666667,11 13,11 C14.3333333,11 16,10.6666667 18,10 L18,13 C16,13.6666667 14.3333333,14 13,14 C11.6666667,14 10.3333333,13.6666667 9,13 C7.66666667,12.3333333 6.33333333,12 5,12 C3.66666667,12 2,12.3333333 0,13 L0,10 Z" fill="#5B55FF"></path>
-          <path d="M0,12 C2,11.3333333 3.66666667,11 5,11 C6.33333333,11 7.66666667,11.3333333 9,12 C10.3333333,12.6666667 11.6666667,13 13,13 C14.3333333,13 16,12.6666667 18,12 L18,15 C16,15.6666667 14.3333333,16 13,16 C11.6666667,16 10.3333333,15.6666667 9,15 C7.66666667,14.3333333 6.33333333,14 5,14 C3.66666667,14 2,14.3333333 0,15 L0,12 Z" fill="#AB56FF"></path>
-        </g>
-        <path d="M5.77458164,22.2450743 C5.87119042,22.7888438 5.5086951,23.3079729 4.96492567,23.4045816 C4.42115625,23.5011904 3.90202714,23.1386951 3.80541836,22.5949257 L3.10541836,18.6549257 L0.802687133,5.58458794 C0.649974993,4.71843889 1.0810201,3.85417025 1.86476731,3.45507487 C3.51961878,2.61240064 4.97329859,2.07701762 6.23746312,1.8541113 C7.70809667,1.59479893 9.23551211,1.70257718 10.8090943,2.17063744 C12.093197,2.55259238 13.307701,2.63829082 14.4632215,2.43454139 C15.3882295,2.27143753 16.4936553,1.88496788 17.7708886,1.27093118 C18.7664061,0.792229721 19.9614716,1.21127271 20.4400872,2.20682182 C20.5192437,2.37147221 20.5754681,2.54619162 20.6071918,2.72610581 L22.6763579,14.4609297 C22.8291099,15.3270964 22.3980599,16.1913938 21.6142935,16.5904992 C19.9594398,17.433175 18.5057582,17.9685589 17.2415923,18.1914654 C15.7709588,18.4507778 14.2435434,18.3429996 12.6699612,17.8749393 C11.3858584,17.4929844 10.1713544,17.4072859 9.01583397,17.6110354 C7.96858501,17.7956936 6.69383831,18.2656275 5.20250121,19.0250788 L5.77458164,22.2450743 Z" fill="#000000"></path>
+        <path d="M5.77458164,22.2450743 C5.87119042,22.7888438 5.5086951,23.3079729 4.96492567,23.4045816 C4.42115625,23.5011904 3.90202714,23.1386951 3.80541836,22.5949257 L3.10541836,18.6549257 L0.802687133,5.58458794 C0.649974993,4.71843889 1.0810201,3.85417025 1.86476731,3.45507487 C3.51961878,2.61240064 4.97329859,2.07701762 6.23746312,1.8541113 C7.70809667,1.59479893 9.23551211,1.70257718 10.8090943,2.17063744 C12.093197,2.55259238 13.307701,2.63829082 14.4632215,2.43454139 C15.3882295,2.27143753 16.4936553,1.88496788 17.7708886,1.27093118 C18.7664061,0.792229721 19.9614716,1.21127271 20.4400872,2.20682182 L22.6763579,14.4609297 C22.8291099,15.3270964 22.3980599,16.1913938 21.6142935,16.5904992 C19.9594398,17.433175 18.5057582,17.9685589 17.2415923,18.1914654 C15.7709588,18.4507778 14.2435434,18.3429996 12.6699612,17.8749393 C11.3858584,17.4929844 10.1713544,17.4072859 9.01583397,17.6110354 C7.96858501,17.7956936 6.69383831,18.2656275 5.20250121,19.0250788 L5.77458164,22.2450743 Z" fill="#fff"></path>
       </g>
     </svg>
     <span>supporting lgbt / wspieranie lgbt</span>
@@ -180,54 +158,54 @@ body, input, button, textarea, select, h1, .word-box, .result-item, #wpmDisplay,
   const title = document.querySelector('h1');
   const footer = document.getElementById('footer');
 
-    const flags = {
-      en: `<svg viewBox="0 -4 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g clip-path="url(#clip0_1310_7593)"> <path d="M28 0H0V20H28V0Z" fill="url(#paint0_linear_1310_7593)"></path> <path fill-rule="evenodd" clip-rule="evenodd" d="M12 8H0V12H12V20H16V12H28V8H16V0H12V8Z" fill="url(#paint1_linear_1310_7593)"></path> </g> <defs> <linearGradient id="paint0_linear_1310_7593" x1="14" y1="0" x2="14" y2="20" gradientUnits="userSpaceOnUse"> <stop stop-color="white"></stop> <stop offset="1" stop-color="#F0F0F0"></stop> </linearGradient> <linearGradient id="paint1_linear_1310_7593" x1="14" y1="0" x2="14" y2="20" gradientUnits="userSpaceOnUse"> <stop stop-color="#E82739"></stop> <stop offset="1" stop-color="#CA1A2B"></stop> </linearGradient> <clipPath id="clip0_1310_7593"> <rect width="28" height="20" rx="2" fill="white"></rect> </clipPath> </defs> </g></svg>`,
-      pl: `<svg viewBox="0 0 36 36"><path fill="#EEE" d="M32 5H4a4 4 0 0 0-4 4v9h36V9a4 4 0 0 0-4-4z"/><path fill="#DC143C" d="M0 27a4 4 0 0 0 4 4h28a4 4 0 0 0 4-4v-9H0v9z"/></svg>`
-    };
+  const flags = {
+    en: '🇬🇧',
+    pl: '🇵🇱'
+  };
 
-    function setLanguage(lang) {
-      if (lang === 'pl') {
-        title.textContent = 'Twoje dane i użytkowanie';
-        content.innerHTML = `
-          <p>podczas gry w unscrub szanujemy twoją prywatność. nie zbieramy, nie sprzedajemy ani nie przechowujemy żadnych twoich danych osobowych. wszystko, co robisz na naszej stronie, pozostaje całkowicie prywatne — nawet twórca nie ma do tego dostępu.</p>
-          <p>dziękujemy za odwiedziny! obiecujemy, że twoje informacje są bezpieczne i chronione.</p>`;
-        footer.textContent = 'kontynuuj unscrubowanie!';
-        langLabel.textContent = 'Polski';
-      } else {
-        title.textContent = 'Your Data & Usage';
-        content.innerHTML = `
-          <p>while you play unscrub, we respect your privacy. we do not collect, sell, or store any of your personal data. everything you do on our site stays completely private — not even the creator can see it.</p>
-          <p>thank you for visiting! we promise your information is safe and secure.</p>`;
-        footer.textContent = 'keep unscrubbing!';
-        langLabel.textContent = 'English';
-      }
-      flagIcon.innerHTML = flags[lang];
-      localStorage.setItem('preferredLanguage', lang);
+  function setLanguage(lang) {
+    if (lang === 'pl') {
+      title.textContent = 'Twoje dane i użytkowanie';
+      content.innerHTML = `
+        <p>podczas gry w unscrub szanujemy twoją prywatność. nie zbieramy, nie sprzedajemy ani nie przechowujemy żadnych twoich danych osobowych. wszystko, co robisz na naszej stronie, pozostaje całkowicie prywatne — nawet twórca nie ma do tego dostępu.</p>
+        <p>dziękujemy za odwiedziny! obiecujemy, że twoje informacje są bezpieczne i chronione.</p>`;
+      footer.textContent = 'kontynuuj unscrubowanie!';
+      langLabel.textContent = 'Polski';
+    } else {
+      title.textContent = 'Your Data & Usage';
+      content.innerHTML = `
+        <p>while you play unscrub, we respect your privacy. we do not collect, sell, or store any of your personal data. everything you do on our site stays completely private — not even the creator can see it.</p>
+        <p>thank you for visiting! we promise your information is safe and secure.</p>`;
+      footer.textContent = 'keep unscrubbing!';
+      langLabel.textContent = 'English';
+    }
+    flagIcon.textContent = flags[lang];
+    localStorage.setItem('preferredLanguage', lang);
+    dropdownOptions.style.display = 'none';
+  }
+
+  dropdownBtn.addEventListener('click', () => {
+    dropdownOptions.style.display = dropdownOptions.style.display === 'flex' ? 'none' : 'flex';
+  });
+
+  dropdownOptions.addEventListener('click', (e) => {
+    const option = e.target.closest('.dropdown-option');
+    if (option) setLanguage(option.dataset.lang);
+  });
+
+  const savedLang = localStorage.getItem('preferredLanguage');
+  if (savedLang) setLanguage(savedLang);
+  else {
+    const userLang = navigator.language || navigator.userLanguage;
+    if (userLang.toLowerCase().startsWith('pl')) setLanguage('pl');
+    else setLanguage('en');
+  }
+
+  document.addEventListener('click', (e) => {
+    if (!dropdownBtn.contains(e.target) && !dropdownOptions.contains(e.target)) {
       dropdownOptions.style.display = 'none';
     }
-
-    dropdownBtn.addEventListener('click', () => {
-      dropdownOptions.style.display = dropdownOptions.style.display === 'flex' ? 'none' : 'flex';
-    });
-
-    dropdownOptions.addEventListener('click', (e) => {
-      const option = e.target.closest('.dropdown-option');
-      if (option) setLanguage(option.dataset.lang);
-    });
-
-    const savedLang = localStorage.getItem('preferredLanguage');
-    if (savedLang) setLanguage(savedLang);
-    else {
-      const userLang = navigator.language || navigator.userLanguage;
-      if (userLang.toLowerCase().startsWith('pl')) setLanguage('pl');
-      else setLanguage('en');
-    }
-
-    document.addEventListener('click', (e) => {
-      if (!dropdownBtn.contains(e.target) && !dropdownOptions.contains(e.target)) {
-        dropdownOptions.style.display = 'none';
-      }
-    });
-  </script>
+  });
+</script>
 </body>
 </html>
