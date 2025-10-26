@@ -249,16 +249,15 @@ button:active {
 }
 
 .announcement {
+  position: absolute;
+  top: 40px; /* pushes it just under the WPM display */
+  left: 50%;
+  transform: translateX(-50%);
   opacity: 0.5;
   font-size: 13px;
-  text-align: center;
   color: #fff;
-  margin-top: 8px;
-  margin-bottom: 8px;
   font-family: 'Work Sans', sans-serif;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  text-align: center;
+  z-index: 999;
+  pointer-events: none;
 }
-
