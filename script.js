@@ -43,7 +43,22 @@ function shuffleWord(word) {
 guessInput.disabled = true;
 giveUpBtn.disabled = true;
 
+// --- helper function to disable & re-enable generateBtn ---
+function cooldownGenerateButton() {
+  generateBtn.disabled = true;
+  generateBtn.style.opacity = "0.6";
+  generateBtn.style.cursor = "not-allowed";
+
+  setTimeout(() => {
+    generateBtn.disabled = false;
+    generateBtn.style.opacity = "1";
+    generateBtn.style.cursor = "pointer";
+  }, 3000);
+}
+
 function generateWord() {
+  cooldownGenerateButton(); // disable when generating a new word
+
   const randomIndex = Math.floor(Math.random() * words.length);
   currentWord = words[randomIndex];
   guessInput.value = "";
@@ -119,6 +134,7 @@ function checkGuess() {
 
     setTimeout(() => {
       document.body.removeChild(overlay);
+      cooldownGenerateButton(); // disable generate during new word
       generateWord();
     }, 1500);
   } else {
@@ -140,6 +156,7 @@ function checkGuess() {
       setTimeout(() => {
         document.body.removeChild(overlay);
         lives = 5;
+        cooldownGenerateButton(); // disable generate during new word
         generateWord();
       }, 2000);
     }
@@ -164,23 +181,15 @@ function giveUp() {
   document.body.appendChild(overlay);
   setTimeout(() => {
     document.body.removeChild(overlay);
+    cooldownGenerateButton(); // disable generate during new word
     generateWord();
   }, 2000);
 }
 
-// --- Generate button cooldown (3s) ---
+// --- Generate button listener ---
 generateBtn.addEventListener("click", () => {
-  generateBtn.disabled = true;
-  generateBtn.style.opacity = "0.6";
-  generateBtn.style.cursor = "not-allowed";
-
+  cooldownGenerateButton();
   generateWord();
-
-  setTimeout(() => {
-    generateBtn.disabled = false;
-    generateBtn.style.opacity = "1";
-    generateBtn.style.cursor = "pointer";
-  }, 3000);
 });
 
 submitBtn.addEventListener("click", checkGuess);
