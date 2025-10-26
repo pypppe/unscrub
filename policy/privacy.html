@@ -140,15 +140,22 @@
         `;
         footer.textContent = 'keep unscrubbing!';
       }
+
       select.value = lang;
+      localStorage.setItem('preferredLanguage', lang); // store selected lang
     }
 
-    // auto-detect browser language
-    const userLang = navigator.language || navigator.userLanguage;
-    if (userLang.toLowerCase().startsWith('pl')) {
-      setLanguage('pl');
+    // check if saved lang exists
+    const savedLang = localStorage.getItem('preferredLanguage');
+    if (savedLang) {
+      setLanguage(savedLang);
     } else {
-      setLanguage('en');
+      const userLang = navigator.language || navigator.userLanguage;
+      if (userLang.toLowerCase().startsWith('pl')) {
+        setLanguage('pl');
+      } else {
+        setLanguage('en');
+      }
     }
 
     select.addEventListener('change', () => {
