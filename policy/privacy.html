@@ -145,7 +145,7 @@ body, input, button, textarea, select, h1, .word-box, .result-item, #wpmDisplay,
     </div>
   </div>
 
-  <h1>Privacy Policy</h1>
+  <h1>Your Data & Usage</h1>
   <div class="container" id="content">
     <p>while you play unscrub, we respect your privacy. we do not collect, sell, or store any of your personal data. everything you do on our site stays completely private — not even the creator can see it.</p>
     <p>thank you for visiting! we promise your information is safe and secure.</p>
@@ -169,14 +169,14 @@ body, input, button, textarea, select, h1, .word-box, .result-item, #wpmDisplay,
 
     function setLanguage(lang) {
       if (lang === 'pl') {
-        title.textContent = 'Polityka prywatności';
+        title.textContent = 'Twoje dane i użytkowanie';
         content.innerHTML = `
           <p>podczas gry w unscrub szanujemy twoją prywatność. nie zbieramy, nie sprzedajemy ani nie przechowujemy żadnych twoich danych osobowych. wszystko, co robisz na naszej stronie, pozostaje całkowicie prywatne — nawet twórca nie ma do tego dostępu.</p>
           <p>dziękujemy za odwiedziny! obiecujemy, że twoje informacje są bezpieczne i chronione.</p>`;
         footer.textContent = 'kontynuuj unscrubowanie!';
         langLabel.textContent = 'Polski';
       } else {
-        title.textContent = 'Privacy Policy';
+        title.textContent = 'Your Data & Usage';
         content.innerHTML = `
           <p>while you play unscrub, we respect your privacy. we do not collect, sell, or store any of your personal data. everything you do on our site stays completely private — not even the creator can see it.</p>
           <p>thank you for visiting! we promise your information is safe and secure.</p>`;
