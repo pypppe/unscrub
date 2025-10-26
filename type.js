@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         source.playbackRate.value = 0.9 + Math.random() * 0.2;
 
         const gainNode = context.createGain();
-        gainNode.gain.value = 3.5;
+        gainNode.gain.value = 4.5;
 
         source.connect(gainNode).connect(context.destination);
         source.start(0);
