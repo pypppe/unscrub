@@ -85,8 +85,11 @@ function checkGuess() {
   wordSpan.textContent = guess;
 
   const crossSpan = document.createElement("span");
-  crossSpan.textContent = "❌";
-  crossSpan.style.marginLeft = "8px";
+  crossSpan.innerHTML = `
+    <svg fill="#ff0000" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" stroke="#ff0000" width="18" height="18" style="margin-left: 8px; vertical-align: middle;">
+      <path d="M114,100l49-49a9.9,9.9,0,0,0-14-14L100,86,51,37A9.9,9.9,0,0,0,37,51l49,49L37,149a9.9,9.9,0,0,0,14,14l49-49,49,49a9.9,9.9,0,0,0,14-14Z"></path>
+    </svg>
+  `;
 
   resultItem.appendChild(wordSpan);
   resultItem.appendChild(crossSpan);
@@ -124,6 +127,7 @@ function checkGuess() {
     }
   }
 }
+
 
 function giveUp() {
   if (!currentWord) return;
