@@ -203,10 +203,10 @@ howToPlayBtn.addEventListener("click", () => {
   alert(
     "How To Play:\n\n" +
     "1. Press 'Generate' to get a scrambled word.\n" +
-    "2. Type your guess in the input box and press 'Enter'.\n" +
-    "3. If you give up, press 'I give up' to reveal the word.\n" +
+    "2. Type your guess in the input box and press '→'.\n" +
+    "3. If you give up, press 'Show Answer' to reveal the word.\n" +
     "4. Try to unscramble as many words as you can!\n" +
-    "5. You also have 5 lives. Good Luck!"
+    "5. You also have 5 lives."
   );
 });
 
