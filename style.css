@@ -268,7 +268,7 @@ button:active {
   color: white;
   padding: 15px;
   border-radius: 0;
-  box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+  box-shadow: 0 0 15px rgba(25, 91, 200, 0.6);
   font-family: 'Poppins', sans-serif;
   width: 260px;
   text-align: left;
@@ -282,4 +282,3 @@ button:active {
   opacity: 1;
   transform: translateY(0);
 }
-
