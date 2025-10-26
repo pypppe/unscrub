@@ -116,7 +116,14 @@ function checkGuess() {
     if (lives <= 0) {
       const overlay = document.createElement("div");
       overlay.classList.add("correct-overlay");
-      overlay.textContent = `Out of lives! The word was: ${currentWord}`;
+
+      overlay.innerHTML = `
+        <svg fill="#ff0000" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" stroke="#ff0000" width="28" height="28" style="vertical-align: middle; margin-right: 10px;">
+          <path d="M114,100l49-49a9.9,9.9,0,0,0-14-14L100,86,51,37A9.9,9.9,0,0,0,37,51l49,49L37,149a9.9,9.9,0,0,0,14,14l49-49,49,49a9.9,9.9,0,0,0,14-14Z"></path>
+        </svg>
+        Out of lives! The word was: ${currentWord}
+      `;
+
       document.body.appendChild(overlay);
 
       setTimeout(() => {
@@ -127,7 +134,6 @@ function checkGuess() {
     }
   }
 }
-
 
 function giveUp() {
   if (!currentWord) return;
