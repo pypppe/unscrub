@@ -13,12 +13,10 @@ document.addEventListener("DOMContentLoaded", async () => {
         const source = context.createBufferSource();
         source.buffer = audioBuffer;
 
-        // lil pitch variation
         source.playbackRate.value = 0.9 + Math.random() * 0.2;
 
-        // gain node to boost volume (1 = normal, 2 = double, etc.)
         const gainNode = context.createGain();
-        gainNode.gain.value = 2.5; // try 2.0–3.0 for loud >_<
+        gainNode.gain.value = 3.5;
 
         source.connect(gainNode).connect(context.destination);
         source.start(0);
