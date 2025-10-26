@@ -253,8 +253,12 @@ button:active {
   font-size: 13px;
   text-align: center;
   color: #fff;
-  margin-top: 4px;
-  margin-bottom: 10px;
+  margin-top: 8px;
+  margin-bottom: 8px;
   font-family: 'Work Sans', sans-serif;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
