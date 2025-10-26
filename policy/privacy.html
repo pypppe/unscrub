@@ -44,6 +44,7 @@ h1 {
   align-items: center;
   gap: 8px;
   padding: 6px 10px;
+  border-radius: 0;
 }
 
 .language-dropdown:hover {
@@ -68,6 +69,7 @@ h1 {
   flex-direction: column;
   overflow: hidden;
   z-index: 100;
+  border-radius: 0;
 }
 
 .dropdown-option {
@@ -90,6 +92,7 @@ h1 {
   margin: 30px 0;
   border: 1px solid #333;
   text-align: left;
+  border-radius: 0;
 }
 
 p {
@@ -120,13 +123,24 @@ footer {
     <span class="flag" id="flagIcon"></span>
     <span id="langLabel">English</span>
   </div>
+
   <div class="dropdown-options" id="dropdownOptions">
     <div class="dropdown-option" data-lang="en">
-      <span class="flag">🇬🇧</span>
+      <span class="flag">
+        <svg viewBox="0 -4 28 28" xmlns="http://www.w3.org/2000/svg">
+          <rect width="28" height="20" fill="#fff"/>
+          <path d="M0 8h28v4H0zM12 0h4v20h-4z" fill="#c00"/>
+        </svg>
+      </span>
       <span>English</span>
     </div>
     <div class="dropdown-option" data-lang="pl">
-      <span class="flag">🇵🇱</span>
+      <span class="flag">
+        <svg viewBox="0 0 36 36">
+          <rect width="36" height="18" fill="#fff"/>
+          <rect y="18" width="36" height="18" fill="#dc143c"/>
+        </svg>
+      </span>
       <span>Polski</span>
     </div>
   </div>
@@ -141,9 +155,7 @@ footer {
   keep unscrubbing!
   <span style="display:inline-flex; align-items:center; gap:8px; margin-left:10px;">
     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="24" height="24">
-      <g fill="none" fill-rule="evenodd">
-        <path d="M5.77458164,22.2450743 C5.87119042,22.7888438 5.5086951,23.3079729 4.96492567,23.4045816 C4.42115625,23.5011904 3.90202714,23.1386951 3.80541836,22.5949257 L3.10541836,18.6549257 L0.802687133,5.58458794 C0.649974993,4.71843889 1.0810201,3.85417025 1.86476731,3.45507487 C3.51961878,2.61240064 4.97329859,2.07701762 6.23746312,1.8541113 C7.70809667,1.59479893 9.23551211,1.70257718 10.8090943,2.17063744 C12.093197,2.55259238 13.307701,2.63829082 14.4632215,2.43454139 C15.3882295,2.27143753 16.4936553,1.88496788 17.7708886,1.27093118 C18.7664061,0.792229721 19.9614716,1.21127271 20.4400872,2.20682182 L22.6763579,14.4609297 C22.8291099,15.3270964 22.3980599,16.1913938 21.6142935,16.5904992 C19.9594398,17.433175 18.5057582,17.9685589 17.2415923,18.1914654 C15.7709588,18.4507778 14.2435434,18.3429996 12.6699612,17.8749393 C11.3858584,17.4929844 10.1713544,17.4072859 9.01583397,17.6110354 C7.96858501,17.7956936 6.69383831,18.2656275 5.20250121,19.0250788 L5.77458164,22.2450743 Z" fill="#fff"></path>
-      </g>
+      <path d="M5.7 22.2c.1.6-.3 1.1-.9 1.2-.6.1-1.1-.3-1.2-.9L3.1 18.7 0.8 5.6c-.2-1 .3-2 1.1-2.5 1.6-.8 3-.3 4.4-.1 1.5.2 3 .1 4.5-.4 1.1-.3 2.3-.8 3.5-1.4.9-.4 2 .1 2.5 1l2.1 12.2c.2 1-.3 2-1.1 2.4-1.6.8-3 .3-4.4.1-1.5-.2-3-.1-4.5.4-1.1.3-2.3.8-3.5 1.4l.6 3.7z" fill="#fff"></path>
     </svg>
     <span>supporting lgbt / wspieranie lgbt</span>
   </span>
@@ -159,8 +171,8 @@ footer {
   const footer = document.getElementById('footer');
 
   const flags = {
-    en: '🇬🇧',
-    pl: '🇵🇱'
+    en: `<svg viewBox="0 -4 28 28" xmlns="http://www.w3.org/2000/svg"><rect width="28" height="20" fill="#fff"/><path d="M0 8h28v4H0zM12 0h4v20h-4z" fill="#c00"/></svg>`,
+    pl: `<svg viewBox="0 0 36 36"><rect width="36" height="18" fill="#fff"/><rect y="18" width="36" height="18" fill="#dc143c"/></svg>`
   };
 
   function setLanguage(lang) {
@@ -179,7 +191,7 @@ footer {
       footer.textContent = 'keep unscrubbing!';
       langLabel.textContent = 'English';
     }
-    flagIcon.textContent = flags[lang];
+    flagIcon.innerHTML = flags[lang];
     localStorage.setItem('preferredLanguage', lang);
     dropdownOptions.style.display = 'none';
   }
