@@ -216,16 +216,40 @@ guessInput.addEventListener("keydown", (e) => {
 });
 
 const howToPlayBtn = document.getElementById("howToPlayBtn");
+
 howToPlayBtn.addEventListener("click", () => {
-  alert(
-    "How To Play:\n\n" +
-    "1. Press 'Generate' to get a scrambled word.\n" +
-    "2. Type your guess in the input box and press '→'.\n" +
-    "3. If you give up, press 'Show Answer' to reveal the word.\n" +
-    "4. Try to unscramble as many words as you can!\n" +
-    "5. You also have 5 lives."
-  );
+  // if popup already exists, remove it first
+  const existing = document.getElementById("howToPlayPopup");
+  if (existing) existing.remove();
+
+  const popup = document.createElement("div");
+  popup.id = "howToPlayPopup";
+  popup.innerHTML = `
+    <strong>how to play:</strong><br><br>
+    1. press 'generate' to get a scrambled word.<br>
+    2. type your guess & press '→'.<br>
+    3. press 'show answer' if you give up.<br>
+    4. try to beat your best streak!<br>
+    5. you have 5 lives.
+  `;
+  
+  // position it below the button
+  const rect = howToPlayBtn.getBoundingClientRect();
+  popup.style.top = rect.bottom + window.scrollY + 10 + "px";
+  popup.style.left = rect.left + window.scrollX + "px";
+  
+  document.body.appendChild(popup);
+
+  // show animation
+  setTimeout(() => popup.classList.add("show"), 10);
+
+  // hide after 12 seconds
+  setTimeout(() => {
+    popup.classList.remove("show");
+    setTimeout(() => popup.remove(), 500);
+  }, 12000);
 });
+
 
 const privacyBtn = document.getElementById("privacyBtn");
 privacyBtn.addEventListener("click", () => {
