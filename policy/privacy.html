@@ -25,7 +25,6 @@
       letter-spacing: 1px;
     }
 
-    /* dropdown styles */
     .language-select {
       position: absolute;
       top: 15px;
@@ -117,8 +116,8 @@
     const title = document.querySelector('h1');
     const footer = document.querySelector('footer');
 
-    select.addEventListener('change', () => {
-      if (select.value === 'pl') {
+    function setLanguage(lang) {
+      if (lang === 'pl') {
         title.textContent = 'Polityka prywatności';
         content.innerHTML = `
           <p>
@@ -141,6 +140,19 @@
         `;
         footer.textContent = 'keep unscrubbing!';
       }
+      select.value = lang;
+    }
+
+    // auto-detect browser language
+    const userLang = navigator.language || navigator.userLanguage;
+    if (userLang.toLowerCase().startsWith('pl')) {
+      setLanguage('pl');
+    } else {
+      setLanguage('en');
+    }
+
+    select.addEventListener('change', () => {
+      setLanguage(select.value);
     });
   </script>
 </body>
