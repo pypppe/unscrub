@@ -247,3 +247,14 @@ button:active {
   fill: #ffffff;
   vertical-align: middle;
 }
+
+.announcement {
+  opacity: 0.5;
+  font-size: 13px;
+  text-align: center;
+  color: #fff;
+  margin-top: 4px;
+  margin-bottom: 10px;
+  font-family: 'Work Sans', sans-serif;
+}
+
