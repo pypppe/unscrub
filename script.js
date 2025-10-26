@@ -53,7 +53,7 @@ function cooldownGenerateButton() {
     generateBtn.disabled = false;
     generateBtn.style.opacity = "1";
     generateBtn.style.cursor = "pointer";
-  }, 1000);
+  }, 1000); // 1 second cooldown
 }
 
 function generateWord() {
