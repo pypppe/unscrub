@@ -1,4 +1,4 @@
-<script>
+document.addEventListener("DOMContentLoaded", () => {
   const typeSound = new Audio("type.wav");
   typeSound.preload = "auto";
 
@@ -11,4 +11,4 @@
       }
     });
   });
-</script>
+});
