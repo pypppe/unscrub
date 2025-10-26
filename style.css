@@ -267,9 +267,9 @@ button:active {
   background: #ff3b3b;
   color: white;
   padding: 15px;
-  border-radius: 8px;
+  border-radius: 0;
   box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
-  font-family: monospace;
+  font-family: 'Poppins', sans-serif;
   width: 260px;
   text-align: left;
   opacity: 0;
@@ -277,6 +277,7 @@ button:active {
   transition: opacity 0.5s ease, transform 0.5s ease;
   z-index: 10;
 }
+
 #howToPlayPopup.show {
   opacity: 1;
   transform: translateY(0);
