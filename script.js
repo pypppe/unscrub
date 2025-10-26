@@ -71,7 +71,7 @@ function generateWord() {
   giveUpBtn.disabled = true;
 
   // jumble animation
-  let animationTime = 3000; // 3 seconds
+  let animationTime = 1000; // 1 second
   let interval = 100; // how fast letters shuffle
   let elapsed = 0;
 
