@@ -101,22 +101,21 @@ function checkGuess() {
   if (guess === currentWord) {
     lives = 5;
 
-const overlay = document.createElement("div");
-overlay.classList.add("correct-overlay");
+    const overlay = document.createElement("div");
+    overlay.classList.add("correct-overlay");
 
-overlay.innerHTML = `
-  <svg fill="#44ff00" version="1.1" xmlns="http://www.w3.org/2000/svg"
-       viewBox="0 0 335.765 335.765" width="28" height="28"
-       style="vertical-align: middle; margin-right: 10px;">
-    <g>
-      <polygon points="311.757,41.803 107.573,245.96 23.986,162.364 0,186.393 107.573,293.962 335.765,65.795"></polygon>
-    </g>
-  </svg>
-  Correct!
-`;
+    overlay.innerHTML = `
+      <svg fill="#44ff00" version="1.1" xmlns="http://www.w3.org/2000/svg"
+           viewBox="0 0 335.765 335.765" width="28" height="28"
+           style="vertical-align: middle; margin-right: 10px;">
+        <g>
+          <polygon points="311.757,41.803 107.573,245.96 23.986,162.364 0,186.393 107.573,293.962 335.765,65.795"></polygon>
+        </g>
+      </svg>
+      Correct!
+    `;
 
-document.body.appendChild(overlay);
-
+    document.body.appendChild(overlay);
 
     setTimeout(() => {
       document.body.removeChild(overlay);
@@ -169,7 +168,21 @@ function giveUp() {
   }, 2000);
 }
 
-generateBtn.addEventListener("click", generateWord);
+// --- Generate button cooldown (3s) ---
+generateBtn.addEventListener("click", () => {
+  generateBtn.disabled = true;
+  generateBtn.style.opacity = "0.6";
+  generateBtn.style.cursor = "not-allowed";
+
+  generateWord();
+
+  setTimeout(() => {
+    generateBtn.disabled = false;
+    generateBtn.style.opacity = "1";
+    generateBtn.style.cursor = "pointer";
+  }, 3000);
+});
+
 submitBtn.addEventListener("click", checkGuess);
 giveUpBtn.addEventListener("click", giveUp);
 guessInput.addEventListener("keydown", (e) => {
@@ -183,7 +196,7 @@ howToPlayBtn.addEventListener("click", () => {
     "1. Press 'Generate' to get a scrambled word.\n" +
     "2. Type your guess in the input box and press 'Enter'.\n" +
     "3. If you give up, press 'I give up' to reveal the word.\n" +
-    "4. Try to unscramble as many words as you can! .\n" +
+    "4. Try to unscramble as many words as you can!\n" +
     "5. You also have 5 lives. Good Luck!"
   );
 });
