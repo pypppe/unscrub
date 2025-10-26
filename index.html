@@ -8,20 +8,32 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="stylesheet" href="style.css">
   <style>
-    /* Wraps everything so buttons sit below */
+    /* Stack game + button section vertically */
     .main-wrapper {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       height: 100vh;
-      gap: 25px; /* gap between game and buttons */
+      gap: 25px; /* spacing between game and buttons */
     }
 
+    /* Bottom section styled like container */
     .bottom-section {
+      width: 480px;
+      text-align: center;
+      background: linear-gradient(145deg, #151515, #1b1b1b);
+      padding: 25px;
+      border-radius: 0;
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
       display: flex;
       justify-content: center;
       gap: 15px;
+      transition: transform 0.2s ease;
+    }
+
+    .bottom-section:hover {
+      transform: translateY(-3px);
     }
   </style>
 </head>
@@ -32,7 +44,6 @@
   <button id="howToPlayBtn">How To Play</button>
   <button id="privacyBtn">Privacy Policy</button>
 
-  <!-- wrapper to stack the main container and buttons vertically -->
   <div class="main-wrapper">
 
     <div class="container">
@@ -55,7 +66,7 @@
       <div id="results"></div>
     </div>
 
-    <!-- Separate section below the game -->
+    <!-- Separate gray background section below the game -->
     <div class="bottom-section">
       <button id="generateBtn" type="button">Generate</button>
       <button id="giveUpBtn" type="button">Show Answer</button>
