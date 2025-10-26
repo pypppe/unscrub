@@ -77,12 +77,12 @@ input[type="text"] {
 }
 
 input[type="text"]:focus {
-  box-shadow: 0 0 0 2px #4caf50;
+  box-shadow: 0 0 0 2px #1f6feb;
   background-color: #22354c;
 }
 
 button {
-  background-color: #4caf50;
+  background-color: #1f6feb;
   color: #fff;
   border: none;
   font-size: 1.05rem;
@@ -96,7 +96,7 @@ button {
 }
 
 button:hover {
-  background-color: #45a049;
+  background-color: #195bc8;
   transform: translateY(-1px);
 }
 
@@ -131,7 +131,7 @@ button:active {
   justify-content: center;
   align-items: center;
   font-size: 2.2rem;
-  color: #4caf50;
+  color: #1f6feb;
   z-index: 10;
   background: rgba(0, 0, 0, 0.4);
   animation: fadeIn 0.3s ease forwards;
@@ -153,7 +153,7 @@ button:active {
   padding: 10px 15px;
   font-size: 14px;
   cursor: pointer;
-  background-color: #4caf50;
+  background-color: #1f6feb;
   color: white;
   border: none;
   border-radius: 0;
@@ -169,7 +169,7 @@ button:active {
 
 #howToPlayBtn:hover,
 #privacyBtn:hover {
-  background-color: #45a049;
+  background-color: #195bc8;
   transform: translateY(-1px);
 }
 
@@ -188,7 +188,7 @@ button:active {
   top: 10px;
   left: 50%;
   transform: translateX(-50%);
-  color: #4caf50;
+  color: #1f6feb;
   font-size: 18px;
   font-weight: 600;
   z-index: 1000;
@@ -196,7 +196,7 @@ button:active {
 
 /* Align the submit button SVG slightly lower */
 #submitBtn svg {
-  transform: translateY(2px); /* pushes the icon down a little */
+  transform: translateY(2px);
   width: 20px;
   height: 20px;
   stroke: #ffffff;
@@ -204,7 +204,7 @@ button:active {
 
 /* fix spinning svg size + centering */
 .word-box svg {
-  width: 28px; /* you can tweak this (24–32 looks best) */
+  width: 28px;
   height: 28px;
   animation: spin 1s linear infinite;
 }
@@ -217,11 +217,11 @@ button:active {
 #githubBtn {
   position: absolute;
   top: 20px;
-  left: 280px; /* shifted right from privacyBtn */
+  left: 280px;
   padding: 10px 15px;
   font-size: 14px;
   cursor: pointer;
-  background-color: #4caf50;
+  background-color: #1f6feb;
   color: white;
   border: none;
   border-radius: 0;
@@ -233,7 +233,7 @@ button:active {
 }
 
 #githubBtn:hover {
-  background-color: #45a049;
+  background-color: #195bc8;
   transform: translateY(-1px);
 }
 
