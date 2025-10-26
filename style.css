@@ -229,3 +229,38 @@ button:active {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+#githubBtn {
+  position: absolute;
+  top: 20px;
+  left: 280px; /* shifted right from privacyBtn */
+  padding: 10px 15px;
+  font-size: 14px;
+  cursor: pointer;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+#githubBtn:hover {
+  background-color: #45a049;
+  transform: translateY(-1px);
+}
+
+#githubBtn:active {
+  transform: scale(0.97);
+}
+
+#githubBtn svg {
+  width: 16px;
+  height: 16px;
+  fill: #ffffff;
+  vertical-align: middle;
+}
+
