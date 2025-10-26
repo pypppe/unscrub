@@ -25,7 +25,7 @@
       letter-spacing: 1px;
     }
 
-    .language-select {
+    .language-dropdown {
       position: absolute;
       top: 15px;
       left: 15px;
@@ -33,16 +33,52 @@
       color: #fff;
       border: 1px solid #444;
       border-radius: 8px;
-      padding: 6px 10px;
       font-size: 0.95rem;
       cursor: pointer;
       outline: none;
       transition: background 0.3s ease, border-color 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 10px;
     }
 
-    .language-select:hover {
+    .language-dropdown:hover {
       background: #3a3a3a;
       border-color: #666;
+    }
+
+    .flag {
+      width: 24px;
+      height: 24px;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    .dropdown-options {
+      position: absolute;
+      top: 45px;
+      left: 15px;
+      background: #2b2b2b;
+      border: 1px solid #444;
+      border-radius: 8px;
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+      z-index: 100;
+    }
+
+    .dropdown-option {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 10px;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .dropdown-option:hover {
+      background: #3a3a3a;
     }
 
     .container {
@@ -81,85 +117,92 @@
       color: #aaa;
       font-size: 0.95rem;
     }
-
-    @media (max-width: 600px) {
-      .container {
-        padding: 25px 20px;
-      }
-      h1 {
-        font-size: 1.8rem;
-      }
-    }
   </style>
 </head>
 <body>
-  <select class="language-select" id="languageSelect">
-    <option value="en">🇬🇧 English</option>
-    <option value="pl">🇵🇱 Polski</option>
-  </select>
+  <div class="language-dropdown" id="dropdownBtn">
+    <span class="flag" id="flagIcon"></span>
+    <span id="langLabel">English</span>
+  </div>
+  <div class="dropdown-options" id="dropdownOptions">
+    <div class="dropdown-option" data-lang="en">
+      <span class="flag">
+        <svg viewBox="0 0 512 512"><path fill="#41479B" d="M473.7 88.3H38.3C17.2 88.3 0 105.4 0 126.6V385.4c0 21.2 17.2 38.3 38.3 38.3h435.3c21.2 0 38.3-17.2 38.3-38.3V126.6c0-21.2-17.1-38.3-38.2-38.3z"/><path fill="#F5F5F5" d="M511.5 120.3c-3-18.2-18.8-32-37.8-32h-9.9L300.2 195.4V88.3h-88.3v107.1L48.3 88.3h-9.9c-19 0-34.8 13.8-37.8 32l139.8 91.6H0v88.3h140.3L0.5 391.7c3 18.2 18.8 32 37.8 32h9.9l163.5-107.1v107.1h88.3V316.6l163.5 107.1h9.9c19 0 34.8-13.8 37.8-32L371.7 300.1H512v-88.3H371.7l139.8-91.5z"/><path fill="#FF4B55" d="M282.5 88.3h-53v141.2H0v53h229.5v141.2h53V282.5H512v-53H282.5z"/></svg>
+      </span>
+      <span>English</span>
+    </div>
+    <div class="dropdown-option" data-lang="pl">
+      <span class="flag">
+        <svg viewBox="0 0 36 36"><path fill="#EEE" d="M32 5H4a4 4 0 0 0-4 4v9h36V9a4 4 0 0 0-4-4z"/><path fill="#DC143C" d="M0 27a4 4 0 0 0 4 4h28a4 4 0 0 0 4-4v-9H0v9z"/></svg>
+      </span>
+      <span>Polski</span>
+    </div>
+  </div>
 
   <h1>Privacy Policy</h1>
   <div class="container" id="content">
-    <p>
-      while you play unscrub, we respect your privacy. we do not collect, sell, or store any of your personal data. everything you do on our site stays completely private — not even the creator can see it.
-    </p>
-    <p>
-      thank you for visiting! we promise your information is safe and secure.
-    </p>
+    <p>while you play unscrub, we respect your privacy. we do not collect, sell, or store any of your personal data. everything you do on our site stays completely private — not even the creator can see it.</p>
+    <p>thank you for visiting! we promise your information is safe and secure.</p>
   </div>
   <hr>
   <footer>keep unscrubbing!</footer>
 
   <script>
-    const select = document.getElementById('languageSelect');
+    const dropdownBtn = document.getElementById('dropdownBtn');
+    const dropdownOptions = document.getElementById('dropdownOptions');
+    const flagIcon = document.getElementById('flagIcon');
+    const langLabel = document.getElementById('langLabel');
     const content = document.getElementById('content');
     const title = document.querySelector('h1');
     const footer = document.querySelector('footer');
+
+    const flags = {
+      en: `<svg viewBox="0 0 512 512"><path fill="#41479B" d="M473.7 88.3H38.3C17.2 88.3 0 105.4 0 126.6V385.4c0 21.2 17.2 38.3 38.3 38.3h435.3c21.2 0 38.3-17.2 38.3-38.3V126.6c0-21.2-17.1-38.3-38.2-38.3z"/><path fill="#F5F5F5" d="M511.5 120.3c-3-18.2-18.8-32-37.8-32h-9.9L300.2 195.4V88.3h-88.3v107.1L48.3 88.3h-9.9c-19 0-34.8 13.8-37.8 32l139.8 91.6H0v88.3h140.3L0.5 391.7c3 18.2 18.8 32 37.8 32h9.9l163.5-107.1v107.1h88.3V316.6l163.5 107.1h9.9c19 0 34.8-13.8 37.8-32L371.7 300.1H512v-88.3H371.7l139.8-91.5z"/><path fill="#FF4B55" d="M282.5 88.3h-53v141.2H0v53h229.5v141.2h53V282.5H512v-53H282.5z"/></svg>`,
+      pl: `<svg viewBox="0 0 36 36"><path fill="#EEE" d="M32 5H4a4 4 0 0 0-4 4v9h36V9a4 4 0 0 0-4-4z"/><path fill="#DC143C" d="M0 27a4 4 0 0 0 4 4h28a4 4 0 0 0 4-4v-9H0v9z"/></svg>`
+    };
 
     function setLanguage(lang) {
       if (lang === 'pl') {
         title.textContent = 'Polityka prywatności';
         content.innerHTML = `
-          <p>
-            podczas gry w unscrub szanujemy twoją prywatność. nie zbieramy, nie sprzedajemy ani nie przechowujemy żadnych twoich danych osobowych. wszystko, co robisz na naszej stronie, pozostaje całkowicie prywatne — nawet twórca nie ma do tego dostępu.
-          </p>
-          <p>
-            dziękujemy za odwiedziny! obiecujemy, że twoje informacje są bezpieczne i chronione.
-          </p>
-        `;
+          <p>podczas gry w unscrub szanujemy twoją prywatność. nie zbieramy, nie sprzedajemy ani nie przechowujemy żadnych twoich danych osobowych. wszystko, co robisz na naszej stronie, pozostaje całkowicie prywatne — nawet twórca nie ma do tego dostępu.</p>
+          <p>dziękujemy za odwiedziny! obiecujemy, że twoje informacje są bezpieczne i chronione.</p>`;
         footer.textContent = 'kontynuuj unscrubowanie!';
+        langLabel.textContent = 'Polski';
       } else {
         title.textContent = 'Privacy Policy';
         content.innerHTML = `
-          <p>
-            while you play unscrub, we respect your privacy. we do not collect, sell, or store any of your personal data. everything you do on our site stays completely private — not even the creator can see it.
-          </p>
-          <p>
-            thank you for visiting! we promise your information is safe and secure.
-          </p>
-        `;
+          <p>while you play unscrub, we respect your privacy. we do not collect, sell, or store any of your personal data. everything you do on our site stays completely private — not even the creator can see it.</p>
+          <p>thank you for visiting! we promise your information is safe and secure.</p>`;
         footer.textContent = 'keep unscrubbing!';
+        langLabel.textContent = 'English';
       }
-
-      select.value = lang;
-      localStorage.setItem('preferredLanguage', lang); // store selected lang
+      flagIcon.innerHTML = flags[lang];
+      localStorage.setItem('preferredLanguage', lang);
+      dropdownOptions.style.display = 'none';
     }
 
-    // check if saved lang exists
+    dropdownBtn.addEventListener('click', () => {
+      dropdownOptions.style.display = dropdownOptions.style.display === 'flex' ? 'none' : 'flex';
+    });
+
+    dropdownOptions.addEventListener('click', (e) => {
+      const option = e.target.closest('.dropdown-option');
+      if (option) setLanguage(option.dataset.lang);
+    });
+
     const savedLang = localStorage.getItem('preferredLanguage');
-    if (savedLang) {
-      setLanguage(savedLang);
-    } else {
+    if (savedLang) setLanguage(savedLang);
+    else {
       const userLang = navigator.language || navigator.userLanguage;
-      if (userLang.toLowerCase().startsWith('pl')) {
-        setLanguage('pl');
-      } else {
-        setLanguage('en');
-      }
+      if (userLang.toLowerCase().startsWith('pl')) setLanguage('pl');
+      else setLanguage('en');
     }
 
-    select.addEventListener('change', () => {
-      setLanguage(select.value);
+    document.addEventListener('click', (e) => {
+      if (!dropdownBtn.contains(e.target) && !dropdownOptions.contains(e.target)) {
+        dropdownOptions.style.display = 'none';
+      }
     });
   </script>
 </body>
