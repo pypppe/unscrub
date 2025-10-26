@@ -25,6 +25,27 @@
       letter-spacing: 1px;
     }
 
+    /* dropdown styles */
+    .language-select {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      background: #2b2b2b;
+      color: #fff;
+      border: 1px solid #444;
+      border-radius: 8px;
+      padding: 6px 10px;
+      font-size: 0.95rem;
+      cursor: pointer;
+      outline: none;
+      transition: background 0.3s ease, border-color 0.3s ease;
+    }
+
+    .language-select:hover {
+      background: #3a3a3a;
+      border-color: #666;
+    }
+
     .container {
       max-width: 700px;
       width: 100%;
@@ -73,8 +94,13 @@
   </style>
 </head>
 <body>
+  <select class="language-select" id="languageSelect">
+    <option value="en">🇬🇧 English</option>
+    <option value="pl">🇵🇱 Polski</option>
+  </select>
+
   <h1>Privacy Policy</h1>
-  <div class="container">
+  <div class="container" id="content">
     <p>
       while you play unscrub, we respect your privacy. we do not collect, sell, or store any of your personal data. everything you do on our site stays completely private — not even the creator can see it.
     </p>
@@ -84,5 +110,38 @@
   </div>
   <hr>
   <footer>keep unscrubbing!</footer>
+
+  <script>
+    const select = document.getElementById('languageSelect');
+    const content = document.getElementById('content');
+    const title = document.querySelector('h1');
+    const footer = document.querySelector('footer');
+
+    select.addEventListener('change', () => {
+      if (select.value === 'pl') {
+        title.textContent = 'Polityka prywatności';
+        content.innerHTML = `
+          <p>
+            podczas gry w unscrub szanujemy twoją prywatność. nie zbieramy, nie sprzedajemy ani nie przechowujemy żadnych twoich danych osobowych. wszystko, co robisz na naszej stronie, pozostaje całkowicie prywatne — nawet twórca nie ma do tego dostępu.
+          </p>
+          <p>
+            dziękujemy za odwiedziny! obiecujemy, że twoje informacje są bezpieczne i chronione.
+          </p>
+        `;
+        footer.textContent = 'kontynuuj unscrubowanie!';
+      } else {
+        title.textContent = 'Privacy Policy';
+        content.innerHTML = `
+          <p>
+            while you play unscrub, we respect your privacy. we do not collect, sell, or store any of your personal data. everything you do on our site stays completely private — not even the creator can see it.
+          </p>
+          <p>
+            thank you for visiting! we promise your information is safe and secure.
+          </p>
+        `;
+        footer.textContent = 'keep unscrubbing!';
+      }
+    });
+  </script>
 </body>
 </html>
