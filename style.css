@@ -282,3 +282,17 @@ button:active {
   opacity: 1;
   transform: translateY(0);
 }
+
+.connector-line {
+  width: 2px;
+  height: 40px;
+  background: repeating-linear-gradient(
+    to bottom,
+    #ffffff,
+    #ffffff 4px, 
+    transparent 4px,   
+    transparent 8px 
+  );
+  margin: 0 auto; 
+}
+
