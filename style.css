@@ -285,18 +285,8 @@ button:active {
 
 .connector-line {
   width: 2px;
-  height: 50px;
-  background: repeating-linear-gradient(
-    to bottom,
-    #ffffff 0px,
-    #ffffff 2px,
-    transparent 2px,
-    transparent 4px
-  );
-  position: relative;
-  top: -25px;
-  margin: 0 auto;
-  z-index: 1;
+  border-left: 2px dashed rgba(255,255,255,0.5);
+  height: 40px;       /* same gap as before, adjust if needed */
+  margin: 0 auto;     /* center it */
 }
-
 
