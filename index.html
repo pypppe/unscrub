@@ -119,5 +119,15 @@
 
 <script src="script.js"></script>
 <script src="type.js"></script>
+
+<script>
+const input = document.getElementById("guessInput");
+
+input.addEventListener("keypress", (e) => {
+  if (!/[a-zA-Z]/.test(e.key)) {
+    e.preventDefault();
+  }
+});
+</script>
 </body>
-</html>
+
