@@ -74,7 +74,7 @@ function generateWord() {
   guessInput.disabled = true;
   giveUpBtn.disabled = true;
 
-  // jumble animation
+  // jumble animation (your original)
   let animationTime = 1000; // 1 second
   let interval = 100; // how fast letters shuffle
   let elapsed = 0;
@@ -87,11 +87,49 @@ function generateWord() {
       wordBox.textContent = shuffleWord(currentWord); // final jumble
       guessInput.disabled = false;
       giveUpBtn.disabled = false;
+      startTimerWithDelay(); // <— moved here so timer starts after jumble
     }
   }, interval);
 }
 
 let lives = 5;
+
+// --- WPM Display Timer ---
+const wpmDisplay = document.getElementById("wpmDisplay");
+let timerInterval = null;
+let minutes = 0;
+let seconds = 0;
+let milliseconds = 0;
+
+function startTimerWithDelay() {
+  clearInterval(timerInterval);
+  minutes = 0;
+  seconds = 0;
+  milliseconds = 0;
+  updateTimerDisplay();
+
+  setTimeout(() => {
+    const startTime = Date.now();
+    timerInterval = setInterval(() => {
+      const elapsed = Date.now() - startTime;
+      minutes = Math.floor(elapsed / 60000);
+      seconds = Math.floor((elapsed % 60000) / 1000);
+      milliseconds = Math.floor((elapsed % 1000) / 10);
+      updateTimerDisplay();
+    }, 10);
+  }, 1000); // 1 second delay
+}
+
+function stopTimer() {
+  clearInterval(timerInterval);
+}
+
+function updateTimerDisplay() {
+  const m = String(minutes).padStart(2, "0");
+  const s = String(seconds).padStart(2, "0");
+  const ms = String(milliseconds).padStart(2, "0");
+  wpmDisplay.textContent = `${m}:${s}:${ms}`;
+}
 
 function checkGuess() {
   const guess = guessInput.value.trim().toLowerCase();
@@ -138,7 +176,8 @@ function checkGuess() {
 
     setTimeout(() => {
       document.body.removeChild(overlay);
-      cooldownGenerateButton(); // disable generate during new word
+      stopTimer(); // ⬅ added timer stop
+      cooldownGenerateButton();
       generateWord();
     }, 1500);
   } else {
@@ -159,14 +198,14 @@ function checkGuess() {
 
       setTimeout(() => {
         document.body.removeChild(overlay);
+        stopTimer(); // ⬅ added timer stop
         lives = 5;
-        cooldownGenerateButton(); // disable generate during new word
+        cooldownGenerateButton();
         generateWord();
       }, 2000);
     }
   }
 }
-
 function giveUp() {
   if (!currentWord) return;
   const overlay = document.createElement("div");
