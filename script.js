@@ -74,7 +74,6 @@ function generateWord() {
   guessInput.disabled = true;
   giveUpBtn.disabled = true;
 
-  // jumble animation (your original)
   let animationTime = 1000; // 1 second
   let interval = 100; // how fast letters shuffle
   let elapsed = 0;
@@ -208,6 +207,13 @@ function checkGuess() {
 }
 function giveUp() {
   if (!currentWord) return;
+
+    stopTimer();
+  minutes = 0;
+  seconds = 0;
+  milliseconds = 0;
+  updateTimerDisplay();
+  
   const overlay = document.createElement("div");
   overlay.classList.add("correct-overlay");
 
