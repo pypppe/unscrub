@@ -1,0 +1,25 @@
+[
+  {
+    "id": 3,
+    "title": "Blog Update",
+    "date": "2025-11-06",
+    "author": "ren",
+    "content": "I added blogs to unscrub."
+  },
+  {
+    "id": 2,
+    "title": "Blue!",
+    "date": "Forgotten",
+    "author": "ren",
+    "content": "I added blue to the game instead of green."
+  },
+  {
+    "id": 1,
+    "title": "Release",
+    "date": "Forgotten",
+    "author": "ren",
+    "content": "Unscrub's out, hope you guys enjoy!"
+  }
+]
+
+// yo ren remember to add the first [ at the start again and not just.. leave it there.
