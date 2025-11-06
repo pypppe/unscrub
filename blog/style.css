@@ -37,11 +37,11 @@ body {
 
 /* Blog posts */
 .blog-post {
-  background-color: #1e1e1e;
+  background-color: transparent; /* no separate black background */
   padding: 20px;
   margin-bottom: 20px;
-  box-shadow: inset 0 -2px 6px rgba(0,0,0,0.4);
-  transition: background-color 0.2s ease, transform 0.1s ease;
+  box-shadow: none; /* optional: remove inset shadow */
+  transition: transform 0.1s ease;
 }
 
 .blog-post:hover {
