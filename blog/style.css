@@ -35,19 +35,19 @@ body {
   width: 100%;
 }
 
-/* Blog posts */
 .blog-post {
-  background-color: transparent; /* no separate black background */
+  background-color: transparent; /* remove black background */
   padding: 20px;
   margin-bottom: 20px;
-  box-shadow: none; /* optional: remove inset shadow */
-  transition: transform 0.1s ease;
+  box-shadow: none; /* remove inset shadow */
+  transition: none; /* no hover effect needed */
 }
 
 .blog-post:hover {
-  background-color: #272727;
-  transform: translateY(-1px);
+  background-color: transparent; /* ensure hover doesn't change anything */
+  transform: none; /* remove hover lift effect */
 }
+
 
 /* Post titles */
 .blog-post h2 {
