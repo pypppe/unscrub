@@ -21,7 +21,7 @@ const words = [
 "basketball", "baseball", "tennis", "swim", "park", "tree", "flower", "grass", "river", "bridge",
 "mountain", "volcano", "forest", "beach", "sea", "island", "boat", "ship", "truck", "bike",
 "mirror", "camera", "keyboard", "mouse", "screen", "music", "song", "battery", "remote", "controller",
-"energy", "powerful", "electric", "science", "experiment", "planet", "space", "rocket", "starship", "astronaut"
+"energy", "powerful", "electric", "science", "experiment", "planet", "space", "rocket", "starship"
 ];
 
 let currentWord = "";
