@@ -145,7 +145,6 @@ button:active {
   border-radius: 0;
 }
 
-/* updated buttons to match githubBtn alignment */
 #howToPlayBtn,
 #privacyBtn {
   position: absolute;
@@ -194,26 +193,6 @@ button:active {
   z-index: 1000;
 }
 
-/* Align the submit button SVG slightly lower */
-#submitBtn svg {
-  transform: translateY(2px);
-  width: 20px;
-  height: 20px;
-  stroke: #ffffff;
-}
-
-/* fix spinning svg size + centering */
-.word-box svg {
-  width: 28px;
-  height: 28px;
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
 #githubBtn {
   position: absolute;
   top: 20px;
@@ -250,7 +229,7 @@ button:active {
 
 .announcement {
   position: absolute;
-  top: 40px; /* pushes it just under the WPM display */
+  top: 40px;
   left: 50%;
   transform: translateX(-50%);
   opacity: 0.5;
@@ -281,4 +260,22 @@ button:active {
 #howToPlayPopup.show {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* New styles for the additional text and image */
+p.additional-text {
+  margin-top: 20px;
+  font-size: 1rem;
+  color: #e0e0e0;
+  text-align: center;
+  width: 50%;
+  margin: 0 auto;
+  font-weight: 500;
+}
+
+.container img {
+  max-width: 100%;
+  height: auto;
+  margin-top: 30px;
+  border-radius: 8px;
 }
