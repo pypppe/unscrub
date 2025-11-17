@@ -296,7 +296,9 @@ button:active {
 }
 
 .go-back-section {
-  margin-top: 30px;
+  width: 100%;
+  text-align: center;
+  margin-top: 40px;
 }
 
 .go-back-btn {
@@ -305,7 +307,7 @@ button:active {
   border: none;
   font-size: 1rem;
   font-weight: 600;
-  border-radius: 0;
+  border-radius: 8px;
   cursor: pointer;
   padding: 10px 20px;
   height: 40px;
