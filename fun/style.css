@@ -262,24 +262,23 @@ button:active {
   transform: translateY(0);
 }
 
-/* New styles for the additional text and image */
 p.additional-text {
-  margin-top: 10px; /* Further reduced the space between the text */
-  font-size: 0.8rem; /* Smaller text size */
-  color: #e0e0e0; /* Matches the existing color */
+  margin-top: 5px;
+  font-size: 0.7rem;
+  color: #e0e0e0;
   text-align: center;
-  width: 70%; /* Further reduced the width to make it even more compact */
+  width: 60%;
   margin: 0 auto;
-  font-weight: 400; /* Lighten font weight to make the text less bold */
+  font-weight: 400;
 }
 
 .container img {
-  max-width: 60%; /* Limited the image width more */
+  max-width: 50%;
   height: auto;
-  margin-top: 15px; /* Reduced space above the image */
-  border-radius: 8px;
-  display: block; /* Ensures that the image behaves like a block element, useful for centering */
+  margin-top: 10px;
+  border-radius: 6px;
+  display: block;
   margin-left: auto;
-  margin-right: auto; /* Center the image */
+  margin-right: auto;
 }
 
