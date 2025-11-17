@@ -260,6 +260,7 @@ button:active {
   text-align: center;
   z-index: 999;
   pointer-events: auto;
+    text-decoration: underline;
 }
 
 .announcement a {
