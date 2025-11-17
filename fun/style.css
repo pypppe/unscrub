@@ -264,18 +264,18 @@ button:active {
 
 /* New styles for the additional text and image */
 p.additional-text {
-  margin-top: 20px;
-  font-size: 1rem;
-  color: #e0e0e0;
+  margin-top: 15px; /* Reduced the space between the text */
+  font-size: 0.9rem; /* Smaller text size */
+  color: #e0e0e0; /* Matches the existing color */
   text-align: center;
-  width: 50%;
+  width: 80%; /* Reduced the width to make it more compact */
   margin: 0 auto;
   font-weight: 500;
 }
 
 .container img {
-  max-width: 100%;
+  max-width: 80%; /* Limited the image width */
   height: auto;
-  margin-top: 30px;
+  margin-top: 20px; /* Reduced space above the image */
   border-radius: 8px;
 }
