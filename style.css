@@ -250,7 +250,7 @@ button:active {
 
 .announcement {
   position: absolute;
-  top: 40px; /* pushes it just under the WPM display */
+  top: 40px;
   left: 50%;
   transform: translateX(-50%);
   opacity: 0.5;
@@ -259,8 +259,19 @@ button:active {
   font-family: 'Poppins', sans-serif;
   text-align: center;
   z-index: 999;
-  pointer-events: none;
+  pointer-events: auto;
 }
+
+.announcement a {
+  color: white;
+  text-decoration: none;
+  pointer-events: auto;
+}
+
+.announcement a:hover {
+  color: #f0f0f0;
+}
+
 
 #howToPlayPopup {
   position: absolute;
