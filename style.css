@@ -295,22 +295,25 @@ button:active {
   transform: translateY(0);
 }
 
+.go-back-section {
+  margin-top: 30px;
+}
+
 .go-back-btn {
   background-color: #1f6feb;
   color: #fff;
   border: none;
-  font-size: 1.05rem;
+  font-size: 1rem;
   font-weight: 600;
   border-radius: 0;
   cursor: pointer;
-  padding: 0 25px;
-  height: 45px;
-  line-height: 45px;
+  padding: 10px 20px;
+  height: 40px;
+  line-height: 40px;
   transition: background-color 0.2s ease, transform 0.1s ease;
-  margin-top: 25px; 
   text-decoration: none;
   display: inline-block;
-  width: 100%; 
+  width: auto;
   text-align: center;
 }
 
@@ -322,4 +325,3 @@ button:active {
 .go-back-btn:active {
   transform: scale(0.97);
 }
-
