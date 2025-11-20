@@ -237,11 +237,8 @@ overlay.innerHTML = `
 }
 
 generateBtn.addEventListener("click", () => {
-  generateBtn.disabled = true;
-  generateBtn.style.opacity = "0.6";
-  generateBtn.style.cursor = "not-allowed";
-
-  generateWord(true);
+  cooldownGenerateButton();
+  generateWord();
 });
 
 
