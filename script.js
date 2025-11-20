@@ -237,8 +237,11 @@ overlay.innerHTML = `
 }
 
 generateBtn.addEventListener("click", () => {
-  generateWord();
   generateBtn.disabled = true;
+  generateBtn.style.opacity = "0.6";
+  generateBtn.style.cursor = "not-allowed";
+
+  generateWord(true);
 });
 
 
