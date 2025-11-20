@@ -183,17 +183,6 @@ button:active {
   to { opacity: 1; transform: scale(1); }
 }
 
-#wpmDisplay {
-  position: absolute;
-  top: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  color: #1f6feb;
-  font-size: 18px;
-  font-weight: 600;
-  z-index: 1000;
-}
-
 /* Align the submit button SVG slightly lower */
 #submitBtn svg {
   transform: translateY(2px);
@@ -250,7 +239,7 @@ button:active {
 
 .announcement {
   position: absolute;
-  top: 50px;
+  top: 20px;
   left: 50%;
   transform: translateX(-50%);
   opacity: 0.5;
