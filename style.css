@@ -39,7 +39,7 @@ h1 {
 .word-box {
   height: 100px;
   background-color: #1e293b;
-  border-radius: 0;
+  border-radius: 6;
   margin-bottom: 25px;
   display: flex;
   justify-content: center;
