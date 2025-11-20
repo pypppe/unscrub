@@ -289,3 +289,9 @@ const privacyBtn = document.getElementById("privacyBtn");
 privacyBtn.addEventListener("click", () => {
   window.location.href = "/policy/privacy.html";
 });
+
+  const generateBtn = document.getElementById('generateBtn');
+
+  generateBtn.addEventListener('click', () => {
+    generateBtn.disabled = true;
+  });
