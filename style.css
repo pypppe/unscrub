@@ -66,7 +66,7 @@ h1 {
 input[type="text"] {
   flex: 1;
   padding: 0 14px;
-  border-radius: 0;
+  border-radius: 6px;
   border: none;
   font-size: 1.05rem;
   height: 45px;
@@ -108,7 +108,7 @@ button:active {
   background-color: #1e293b;
   margin: 6px 0;
   padding: 10px 14px;
-  border-radius: 0;
+  border-radius: 6px;
   display: flex;
   justify-content: space-between;
   align-items: center;
