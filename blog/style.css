@@ -17,13 +17,13 @@ body {
   padding: 40px 0;
 }
 
-/* Container */
 .container {
   width: 480px;
   background: linear-gradient(145deg, #151515, #1b1b1b);
   padding: 40px;
   box-shadow: 0 0 25px rgba(0,0,0,0.6);
   transition: transform 0.2s ease;
+  border-radius: 6px;
 }
 
 .container:hover {
@@ -36,11 +36,12 @@ body {
 }
 
 .blog-post {
-  background-color: transparent; /* remove black background */
+  background-color: transparent;
   padding: 20px;
   margin-bottom: 20px;
-  box-shadow: none; /* remove inset shadow */
-  transition: none; /* no hover effect needed */
+  box-shadow: none;
+  transition: none;
+  border-radius: 6px;
 }
 
 .blog-post:hover {
