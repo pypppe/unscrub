@@ -9,7 +9,16 @@ const hasAccepted = localStorage.getItem('betaAccepted');
 
 window.addEventListener('DOMContentLoaded', () => {
   if (hasAccepted) {
-    document.querySelector('.container').innerHTML = "<h2>You've already made an account.</h2>";
+    const container = document.querySelector('.container');
+    container.innerHTML = `
+      <h2>You've already made an account.</h2>
+      <button id="goBackBtn">Go Back</button>
+    `;
+    
+    const goBackBtn = document.getElementById('goBackBtn');
+    goBackBtn.addEventListener('click', () => {
+      window.location.href = 'https://unscrub.astrarune.com';
+    });
   }
 });
 
