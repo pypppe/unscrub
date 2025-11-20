@@ -26,6 +26,18 @@ This project exists purely **for fun and creativity**, not commercialization. �
 
 ---
 
+## 🛡️ Privacy & Data
+
+Your privacy is important to us.  
+**Unscrub does NOT:**
+- Track your location  
+- Collect personal data  
+- Monitor your gameplay or usage  
+
+You can enjoy the game safely, without worrying about ads, tracking, or data collection.  
+
+---
+
 ## 💌 Feedback & Updates
 
 I release updates often to improve the experience!  
