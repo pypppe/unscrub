@@ -1,8 +1,11 @@
 const usernameInput = document.getElementById('username');
 const usernameFeedback = document.getElementById('usernameFeedback');
+const passwordInput = document.getElementById('password');
 const signUpBtn = document.getElementById('signUpBtn');
 const popup = document.getElementById('popup');
 const continueBtn = document.getElementById('continueBtn');
+
+let readyToRedirect = false;
 
 usernameInput.addEventListener('input', () => {
   const value = usernameInput.value.trim();
