@@ -87,7 +87,7 @@ button {
   border: none;
   font-size: 1.05rem;
   font-weight: 600;
-  border-radius: 0;
+  border-radius: 6px;
   cursor: pointer;
   padding: 0 25px;
   height: 45px;
@@ -156,7 +156,7 @@ button:active {
   background-color: #1f6feb;
   color: white;
   border: none;
-  border-radius: 0;
+  border-radius: 6px;
   z-index: 1000;
   display: flex;
   align-items: center;
@@ -213,7 +213,7 @@ button:active {
   background-color: #1f6feb;
   color: white;
   border: none;
-  border-radius: 0;
+  border-radius: 6px;
   z-index: 1000;
   display: flex;
   align-items: center;
@@ -268,7 +268,7 @@ button:active {
   background: #195bc8;
   color: white;
   padding: 15px;
-  border-radius: 0;
+  border-radius: 6px;
   box-shadow: 0 0 15px rgba(25, 91, 200, 0.6);
   font-family: 'Poppins', sans-serif;
   width: 260px;
