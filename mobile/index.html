@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unscrub Mobile</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="mobile/style.css">
+  <style>
+    /* Stack game + button section vertically */
+    .main-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      gap: 25px; /* space between game and button section */
+    }
+
+    /* Bottom section styled like the main game container */
+    .bottom-section {
+      width: 480px; /* same width as .container */
+      text-align: center;
+      background: linear-gradient(145deg, #151515, #1b1b1b);
+      padding: 25px;
+      border-radius: 0;
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      transition: transform 0.2s ease;
+    }
+
+    .bottom-section:hover {
+      transform: translateY(-3px);
+    }
+
+    /* spin animation */
+    .word-box svg {
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+
+
+  <div class="main-wrapper">
+
+<div class="container">
+  <h1>Unscrub Mobile</h1>
+
+
+<div class="word-box" id="wordBox">
+  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+    <g id="SVGRepo_iconCarrier">
+      <path d="M20.0001 12C20.0001 13.3811 19.6425 14.7386 18.9623 15.9405C18.282 17.1424 17.3022 18.1477 16.1182 18.8587C14.9341 19.5696 13.5862 19.9619 12.2056 19.9974C10.825 20.0328 9.45873 19.7103 8.23975 19.0612" stroke="#ffffff" stroke-width="3.55556" stroke-linecap="round"></path>
+    </g>
+  </svg>
+  <span style="color: white; font-size: 16px; margin-left: 10px;">Press Generate</span>
+</div>
+
+
+      <div class="input-section">
+        <input type="text" id="guessInput" placeholder="Type here to guess..." autocomplete="off">
+        <button id="submitBtn" type="button" aria-label="Submit guess">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g id="SVGRepo_iconCarrier">
+              <path d="M2 12.0701H22" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path d="M16 5L21.16 10C21.4324 10.2571 21.6494 10.567 21.7977 10.9109C21.946 11.2548 22.0226 11.6255 22.0226 12C22.0226 12.3745 21.946 12.7452 21.7977 13.0891C21.6494 13.433 21.4324 13.7429 21.16 14L16 19" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+            </g>
+          </svg>
+        </button>
+      </div>
+
+      <div id="results"></div>
+    </div>
+
+<!-- Separate section below the game -->
+<div class="bottom-section">
+  <button id="generateBtn" type="button">
+    Generate
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:18px; height:18px; vertical-align:middle; margin-left:5px;">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M15.0614 9.67972L16.4756 11.0939L17.8787 9.69083L16.4645 8.27662L15.0614 9.67972ZM16.4645 6.1553L20 9.69083L8.6863 21.0045L5.15076 17.469L16.4645 6.1553Z" fill="#ffffff"></path>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M11.364 5.06066L9.59619 6.82843L8.53553 5.76777L10.3033 4L11.364 5.06066ZM6.76778 6.82842L5 5.06067L6.06066 4L7.82843 5.76776L6.76778 6.82842ZM10.3033 10.364L8.53553 8.5962L9.59619 7.53554L11.364 9.3033L10.3033 10.364ZM7.82843 8.5962L6.06066 10.364L5 9.3033L6.76777 7.53554L7.82843 8.5962Z" fill="#ffffff"></path>
+    </svg>
+  </button>
+
+  <button id="giveUpBtn" type="button">
+    Show Answer
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:18px; height:18px; vertical-align:middle; margin-left:5px;">
+      <path d="M3.5868 13.7788C5.36623 15.5478 8.46953 17.9999 12.0002 17.9999C15.5308 17.9999 18.6335 15.5478 20.413 13.7788C20.8823 13.3123 21.1177 13.0782 21.2671 12.6201C21.3738 12.2933 21.3738 11.7067 21.2671 11.3799C21.1177 10.9218 20.8823 10.6877 20.413 10.2211C18.6335 8.45208 15.5308 6 12.0002 6C8.46953 6 5.36623 8.45208 3.5868 10.2211C3.11714 10.688 2.88229 10.9216 2.7328 11.3799C2.62618 11.7067 2.62618 12.2933 2.7328 12.6201C2.88229 13.0784 3.11714 13.3119 3.5868 13.7788Z" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+      <path d="M10 12C10 13.1046 10.8954 14 12 14C13.1046 14 14 13.1046 14 12C14 10.8954 13.1046 10 12 10C10.8954 10 10 10.8954 10 12Z" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+    </svg>
+  </button>
+</div>
+
+  </div>
+
+<a href="https://x.com/astrarunecom" target="_blank" class="social-icon">
+  <svg viewBox="7360 7355 25 25" xmlns="http://www.w3.org/2000/svg" fill="#ffffff">
+    <path d="M10.29,7377 C17.837,7377 21.965,7370.84365 21.965,7365.50546 C21.965,7365.33021 21.965,7365.15595 21.953,7364.98267 C22.756,7364.41163 23.449,7363.70276 24,7362.8915 C23.252,7363.21837 22.457,7363.433 21.644,7363.52751 C22.5,7363.02244 23.141,7362.2289 23.448,7361.2926 C22.642,7361.76321 21.761,7362.095 20.842,7362.27321 C19.288,7360.64674 16.689,7360.56798 15.036,7362.09796 C13.971,7363.08447 13.518,7364.55538 13.849,7365.95835 C10.55,7365.79492 7.476,7364.261 5.392,7361.73762 C4.303,7363.58363 4.86,7365.94457 6.663,7367.12996 C6.01,7367.11125 5.371,7366.93797 4.8,7366.62489 L4.8,7366.67608 C4.801,7368.5989 6.178,7370.2549 8.092,7370.63591 C7.488,7370.79836 6.854,7370.82199 6.24,7370.70483 C6.777,7372.35099 8.318,7373.47829 10.073,7373.51078 C8.62,7374.63513 6.825,7375.24554 4.977,7375.24358 C4.651,7375.24259 4.325,7375.22388 4,7375.18549 C5.877,7376.37088 8.06,7377 10.29,7376.99705"></path>
+  </svg>
+</a>
+
+
+<script src="script.js"></script>
+<script src="type.js"></script>
+
+<script>
+const input = document.getElementById("guessInput");
+
+input.addEventListener("keypress", (e) => {
+  if (!/[a-zA-Z]/.test(e.key)) {
+    e.preventDefault();
+  }
+});
+</script>
+</body>
