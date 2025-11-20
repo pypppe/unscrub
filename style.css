@@ -378,3 +378,24 @@ button:active {
   vertical-align: middle;
 }
 
+.social-icon {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.social-icon svg {
+  width: 100%;
+  height: 100%;
+  fill: #1DA1F2;
+  transition: transform 0.2s;
+}
+
+.social-icon:hover svg {
+  transform: scale(1.1);
+}
+
