@@ -12,6 +12,8 @@ usernameInput.addEventListener('input', () => {
   } else if (value.length <= 30) {
     usernameFeedback.textContent = 'This username is available.';
     usernameFeedback.className = 'feedback success';
+  } else {
+    usernameFeedback.textContent = '';
   }
 });
 
