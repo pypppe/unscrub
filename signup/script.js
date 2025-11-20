@@ -5,7 +5,13 @@ const signUpBtn = document.getElementById('signUpBtn');
 const popup = document.getElementById('popup');
 const continueBtn = document.getElementById('continueBtn');
 
-let readyToRedirect = false;
+const hasAccepted = localStorage.getItem('betaAccepted');
+
+window.addEventListener('DOMContentLoaded', () => {
+  if (hasAccepted) {
+    document.querySelector('.container').innerHTML = "<h2>You've already made an account.</h2>";
+  }
+});
 
 usernameInput.addEventListener('input', () => {
   const value = usernameInput.value.trim();
@@ -21,10 +27,15 @@ usernameInput.addEventListener('input', () => {
 });
 
 signUpBtn.addEventListener('click', () => {
-  popup.style.display = 'flex';
+  if (!hasAccepted) {
+    popup.style.display = 'flex';
+  } else {
+    alert("You've already made an account.");
+  }
 });
 
 continueBtn.addEventListener('click', () => {
+  localStorage.setItem('betaAccepted', 'true');
   popup.style.display = 'none';
   window.location.href = 'https://unscrub.astrarune.com';
 });
