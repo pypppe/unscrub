@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
-body, input, button, h1 {
+body, input, button, h1, label {
   font-family: 'Poppins', "Inter", Arial, sans-serif;
   margin: 0;
   padding: 0;
@@ -41,26 +41,35 @@ h1 {
   text-align: left;
 }
 
-label {
+.input-label {
   display: block;
   margin-bottom: 6px;
   font-weight: 500;
+  font-size: 0.95rem;
+  color: #e0e0e0;
 }
 
 input[type="text"], input[type="password"] {
   width: 100%;
-  padding: 10px 14px;
-  border-radius: 0;
-  border: none;
+  padding: 12px 16px;
+  border-radius: 6px;
+  border: 1px solid #334155;
   background-color: #1e293b;
   color: #f5f5f5;
   font-size: 1rem;
   outline: none;
-  margin-bottom: 5px;
+  transition: 0.2s ease all;
 }
 
-input[type="text"]:focus, input[type="password"]:focus {
-  box-shadow: 0 0 0 2px #1f6feb;
+input[type="text"]::placeholder,
+input[type="password"]::placeholder {
+  color: #a0a0a0;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+  border-color: #1f6feb;
+  box-shadow: 0 0 0 2px rgba(31, 111, 235, 0.3);
   background-color: #22354c;
 }
 
@@ -70,9 +79,9 @@ button {
   border: none;
   font-size: 1.05rem;
   font-weight: 600;
-  border-radius: 0;
+  border-radius: 6px;
   cursor: pointer;
-  padding: 10px 25px;
+  padding: 12px 25px;
   transition: background-color 0.2s ease, transform 0.1s ease;
 }
 
@@ -87,7 +96,8 @@ button:active {
 
 .feedback {
   font-size: 0.9rem;
-  margin-top: 2px;
+  margin-top: 4px;
+  min-height: 1.2em;
 }
 
 .feedback.success {
@@ -118,7 +128,7 @@ button:active {
   padding: 25px;
   text-align: center;
   width: 400px;
-  border-radius: 0;
+  border-radius: 6px;
   box-shadow: 0 0 15px rgba(0,0,0,0.5);
 }
 
@@ -133,4 +143,6 @@ button:active {
 
 .popup-content button {
   margin-top: 10px;
+  border-radius: 6px;
+  padding: 10px 20px;
 }
