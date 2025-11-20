@@ -421,3 +421,8 @@ button:active {
   fill: #ffffff;
   vertical-align: middle;
 }
+
+.subtitle {
+  opacity: 0.5;
+  font-size: 0.8em;
+}
