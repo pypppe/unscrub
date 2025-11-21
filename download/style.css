@@ -15,7 +15,7 @@ body {
 }
 
 .container {
-  width: 480px;
+  width: 600px;
   text-align: center;
   background: linear-gradient(145deg, #151515, #1b1b1b);
   padding: 40px;
@@ -41,6 +41,7 @@ h1 {
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  margin-top: 30px;
 }
 
 .download-option {
@@ -64,10 +65,10 @@ h1 {
   background-color: #1f6feb;
   color: #fff;
   border: none;
-  font-size: 1rem;
+  font-size: 1.05rem;
   font-weight: 600;
   border-radius: 6px;
-  padding: 12px 24px;
+  padding: 12px 30px;
   cursor: pointer;
   margin-top: 20px;
   text-decoration: none;
@@ -88,4 +89,14 @@ h1 {
   cursor: not-allowed;
   pointer-events: none;
   opacity: 0.6;
+}
+
+.download-option.left {
+  text-align: left;
+  margin-left: 10%;
+}
+
+.download-option.right {
+  text-align: right;
+  margin-right: 10%;
 }
