@@ -126,3 +126,7 @@ button:active {
 .popup-container p {
   font-size: 1rem;
 }
+
+.feedback.blacklist {
+  color: yellow;
+}
