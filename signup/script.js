@@ -31,7 +31,7 @@ usernameInput.addEventListener('input', () => {
   const value = usernameInput.value.trim();
 
   if (isUsernameBlacklisted(value)) {
-    usernameFeedback.textContent = 'This username is not available for use.';
+    usernameFeedback.textContent = 'This username is not allowed on Unscrub.';
     usernameFeedback.className = 'feedback blacklist';
     signUpBtn.disabled = true;
     return;
