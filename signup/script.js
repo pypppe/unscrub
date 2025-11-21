@@ -24,6 +24,15 @@ window.addEventListener('DOMContentLoaded', () => {
 
 usernameInput.addEventListener('input', () => {
   const value = usernameInput.value.trim();
+
+  const blacklist = ['unscrub', 'astrarune', 'pyp', 'pyppe', 'pypppe', 'ren'];
+
+  if (blacklist.includes(value.toLowerCase())) {
+    usernameFeedback.textContent = 'This username is not available for use.';
+    usernameFeedback.className = 'feedback blacklist';
+    return;
+  }
+
   if (value.length < 3) {
     usernameFeedback.textContent = 'Username too short.';
     usernameFeedback.className = 'feedback error';
