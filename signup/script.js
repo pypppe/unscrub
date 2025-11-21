@@ -9,7 +9,12 @@ const hasAccepted = localStorage.getItem('betaAccepted');
 
 function isUsernameBlacklisted(name) {
   const blacklist = ['unscrub', 'astrarune', 'pyp', 'pyppe', 'pypppe', 'ren'];
-  return blacklist.includes(name.toLowerCase());
+  for (const term of blacklist) {
+    if (name.toLowerCase().includes(term)) {
+      return true;
+    }
+  }
+  return false;
 }
 
 window.addEventListener('DOMContentLoaded', () => {
