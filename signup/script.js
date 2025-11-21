@@ -7,6 +7,11 @@ const continueBtn = document.getElementById('continueBtn');
 
 const hasAccepted = localStorage.getItem('betaAccepted');
 
+function isUsernameBlacklisted(name) {
+  const blacklist = ['unscrub', 'astrarune', 'pyp', 'pyppe', 'pypppe', 'ren'];
+  return blacklist.includes(name.toLowerCase());
+}
+
 window.addEventListener('DOMContentLoaded', () => {
   if (hasAccepted) {
     const container = document.querySelector('.container');
@@ -25,26 +30,35 @@ window.addEventListener('DOMContentLoaded', () => {
 usernameInput.addEventListener('input', () => {
   const value = usernameInput.value.trim();
 
-  const blacklist = ['unscrub', 'astrarune', 'pyp', 'pyppe', 'pypppe', 'ren'];
-
-  if (blacklist.includes(value.toLowerCase())) {
+  if (isUsernameBlacklisted(value)) {
     usernameFeedback.textContent = 'This username is not available for use.';
     usernameFeedback.className = 'feedback blacklist';
+    signUpBtn.disabled = true;
     return;
   }
 
   if (value.length < 3) {
     usernameFeedback.textContent = 'Username too short.';
     usernameFeedback.className = 'feedback error';
+    signUpBtn.disabled = true;
   } else if (value.length <= 30) {
     usernameFeedback.textContent = 'This username is available.';
     usernameFeedback.className = 'feedback success';
+    signUpBtn.disabled = false;
   } else {
     usernameFeedback.textContent = '';
+    signUpBtn.disabled = true;
   }
 });
 
 signUpBtn.addEventListener('click', () => {
+  const value = usernameInput.value.trim();
+
+  if (isUsernameBlacklisted(value)) {
+    alert("This username is blacklisted. Please choose another.");
+    return;
+  }
+
   if (!hasAccepted) {
     popup.style.display = 'flex';
   } else {
