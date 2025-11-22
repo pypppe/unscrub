@@ -19,7 +19,7 @@ body {
   text-align: center;
   background: linear-gradient(145deg, #151515, #1b1b1b);
   padding: 24px; /* reduced padding */
-  border-radius: 0;
+  border-radius: 6px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
   transition: transform 0.2s ease;
 }
@@ -39,7 +39,7 @@ h1 {
 .word-box {
   height: 70px; /* smaller */
   background-color: #1e293b;
-  border-radius: 0;
+  border-radius: 6px;
   margin-bottom: 16px;
   display: flex;
   justify-content: center;
@@ -66,7 +66,7 @@ h1 {
 input[type="text"] {
   flex: 1;
   padding: 0 10px;
-  border-radius: 0;
+  border-radius: 6px;
   border: none;
   font-size: 0.85rem; /* smaller font */
   height: 36px; /* shorter */
@@ -87,7 +87,7 @@ button {
   border: none;
   font-size: 0.85rem; /* smaller font */
   font-weight: 600;
-  border-radius: 0;
+  border-radius: 6px;
   cursor: pointer;
   padding: 0 16px; /* smaller padding */
   height: 36px; /* shorter */
@@ -106,9 +106,9 @@ button:active {
 
 .result-item {
   background-color: #1e293b;
-  margin: 4px 0; /* smaller margin */
-  padding: 6px 10px; /* smaller padding */
-  border-radius: 0;
+  margin: 4px 0;
+  padding: 6px 10px;
+  border-radius: 6px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -126,11 +126,11 @@ button:active {
   left: 0;
   width: 100%;
   height: 100%;
-  backdrop-filter: blur(4px); /* slightly less blur */
+  backdrop-filter: blur(4px);
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.7rem; /* slightly smaller */
+  font-size: 1.7rem;
   color: #1f6feb;
   z-index: 10;
   background: rgba(0, 0, 0, 0.4);
@@ -141,7 +141,7 @@ button:active {
   width: 100%;
   height: 1px;
   background: linear-gradient(to right, transparent, #2f3c4d, transparent);
-  margin: 6px 0; /* smaller margin */
+  margin: 6px 0;
   border-radius: 0;
 }
 
@@ -158,7 +158,7 @@ button:active {
 }
 
 .word-box svg {
-  width: 20px; /* smaller */
+  width: 20px;
   height: 20px;
   animation: spin 1s linear infinite;
 }
@@ -169,9 +169,43 @@ button:active {
 }
 
 .small-logo {
-  width: 16px; /* smaller */
+  width: 16px;
   height: 16px;
   vertical-align: middle;
   margin: 0;
   padding: 0;
+}
+
+#giveUpBtn {
+  background-color: #1f6feb;
+  color: #fff;
+  border: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: 6px;
+  height: 36px;
+  line-height: 36px;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+#giveUpBtn:hover {
+  background-color: #195bc8;
+  transform: translateY(-1px);
+}
+
+#giveUpBtn:active {
+  transform: scale(0.96);
+
+#giveUpBtn svg {
+  width: 18px;
+  height: 18px;
+  stroke: #fff;
+  vertical-align: middle;
+  margin-left: 5px;
 }
