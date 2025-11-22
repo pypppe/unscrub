@@ -428,7 +428,7 @@ button:active {
 }
 
 #giveUpBtn {
-  background-color: #0f4db8;
+  background-color: #0d3b8a;
   color: #fff;
   border: none;
   font-size: 1.05rem;
@@ -442,7 +442,7 @@ button:active {
   gap: 6px;
   cursor: not-allowed;
   pointer-events: none;
-  opacity: 0.9;
+  opacity: 0.7;
   transition: none;
 }
 
@@ -451,3 +451,4 @@ button:active {
   height: 16px;
   vertical-align: middle;
 }
+
