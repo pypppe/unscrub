@@ -455,7 +455,7 @@ button:active {
 #donateBtn {
   position: absolute;
   top: 20px;
-  right: 115px;
+  right: 120px;
   padding: 10px 15px;
   font-size: 14px;
   cursor: not-allowed;
@@ -478,7 +478,7 @@ button:active {
 }
 
 #donateBtn:hover {
-  background-color: #555555;
+  background-color: #0d3b8a;
   transform: none;
 }
 
