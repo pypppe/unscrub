@@ -455,11 +455,11 @@ button:active {
 #donateBtn {
   position: absolute;
   top: 20px;
-  right: 110px;
+  right: 115px;
   padding: 10px 15px;
   font-size: 14px;
   cursor: not-allowed;
-  background-color: #555555;
+  background-color: #0d3b8a;
   color: #dcdcdc;
   border: none;
   border-radius: 6px;
