@@ -455,7 +455,7 @@ button:active {
 #donateBtn {
   position: absolute;
   top: 20px;
-  right: 100px;
+  right: 90px;
   padding: 10px 15px;
   font-size: 14px;
   cursor: not-allowed;
