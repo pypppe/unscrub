@@ -1,0 +1,54 @@
+<!-- index.html -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Unscrub Codes</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container" role="main" aria-labelledby="title">
+    <h1 id="title">Unscrub Codes</h1>
+
+    <div class="word-box" id="wordBox" aria-live="polite">
+      <!-- typing text will appear here -->
+      <span id="typingText" style="display:inline-block"></span>
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"></circle>
+      </svg>
+    </div>
+
+    <div class="input-section" aria-label="Enter code">
+      <input id="codeInput" type="text" inputmode="text" autocomplete="off" 
+             placeholder="Type letters & numbers only" aria-describedby="hint" />
+      <button id="submitBtn" title="Submit">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </button>
+    </div>
+
+    <div id="hint" class="subtitle">Only letters (A–Z) and numbers (0–9). No spaces or special characters.</div>
+
+    <div id="results" style="margin-top:18px"></div>
+
+    <div class="go-back-section">
+      <a class="go-back-btn" href="#" id="resetBtn">Reset</a>
+    </div>
+  </div>
+
+  <!-- success overlay -->
+  <div id="correctOverlay" class="correct-overlay" style="display:none">
+    <div>
+      Success!
+      <div style="font-size:0.7rem; opacity:0.85; margin-top:6px" id="revealedCode"></div>
+      <div style="margin-top:12px">
+        <button class="go-back-btn" id="closeOverlay">Continue</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
