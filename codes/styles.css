@@ -499,3 +499,11 @@ button:active {
   .container { width: 92%; padding: 28px; }
   .word-box { height: 86px; font-size: 1.6rem; }
 }
+
+.result-item.success {
+  color: #4ade80; /* green */
+}
+
+.result-item.error {
+  color: #f87171; /* red */
+}
