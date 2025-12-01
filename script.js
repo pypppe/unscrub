@@ -46,7 +46,7 @@ function shuffleWord(word) {
 }
 
 guessInput.disabled = true;
-giveUpBtn.disabled = true;
+giveUpBtn.disabled = false;
 
 // --- helper function to disable & re-enable generateBtn ---
 function cooldownGenerateButton() {
