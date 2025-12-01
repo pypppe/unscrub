@@ -428,28 +428,36 @@ button:active {
 }
 
 #giveUpBtn {
+  padding: 10px 15px;
+  font-size: 14px;
   background-color: #0d3b8a;
-  color: #fff;
+  color: #dcdcdc;
   border: none;
-  font-size: 1.05rem;
-  font-weight: 600;
   border-radius: 6px;
-  height: 45px;
-  line-height: 45px;
-  padding: 0 25px;
+  cursor: pointer; 
   display: flex;
   align-items: center;
   gap: 6px;
-  cursor: not-allowed;
-  pointer-events: none;
-  opacity: 0.7;
-  transition: none;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+
+  height: 45px;
+  line-height: 45px;
+  font-weight: 600;
 }
 
 #giveUpBtn svg {
   width: 16px;
   height: 16px;
   vertical-align: middle;
+}
+
+#giveUpBtn:hover {
+  background-color: #0d3b8a;
+  transform: none;
+}
+
+#giveUpBtn:active {
+  transform: none;
 }
 
 #donateBtn {
