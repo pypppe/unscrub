@@ -1,51 +1,58 @@
 [
   {
+    "id": 8,
+    "title": "Christmas!",
+    "date": "2025-12-1",
+    "author": "lily",
+    "content": "Happy christmas everyone!"
+  },
+  {
     "id": 7,
     "title": "Classic Mode",
     "date": "2025-11-22",
-    "author": "ren",
+    "author": "lily",
     "content": "The classic version of Unscrub is out, that means you can now play the first ever released version of Unscrub!"
   },
   {
     "id": 6,
     "title": "Mobile App",
     "date": "2025-11-21",
-    "author": "ren",
+    "author": "lily",
     "content": "Unscrub is now avaliable for Mobile!"
   },
   {
     "id": 5,
     "title": "Accounts",
     "date": "2025-11-20",
-    "author": "ren",
+    "author": "lily",
     "content": "introducing... ACCOUNTS! still in beta. :3"
   },
   {
     "id": 4,
     "title": "Fun Mode Button",
     "date": "2025-11-20",
-    "author": "ren",
+    "author": "lily",
     "content": "there's a new Fun Mode coming out soon! hope you all enjoy :3"
   },
   {
     "id": 3,
     "title": "Blog Update",
     "date": "2025-11-06",
-    "author": "ren",
+    "author": "lily",
     "content": "I added blogs to unscrub."
   },
   {
     "id": 2,
     "title": "Blue!",
     "date": "Forgotten",
-    "author": "ren",
+    "author": "lily",
     "content": "I added blue to the game instead of green."
   },
   {
     "id": 1,
     "title": "Release",
     "date": "2025-10-10",
-    "author": "ren",
+    "author": "lily",
     "content": "Unscrub's out, hope you guys enjoy!"
   }
 ]
