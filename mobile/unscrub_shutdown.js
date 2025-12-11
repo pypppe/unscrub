@@ -47,12 +47,12 @@
 
   var msg = document.createElement('p');
   msg.className = 'unscrub-msg';
-  msg.textContent = "Unscrub has shut down due to bugs keep appearing, and no matter what we do. it doesn't go away, instead you can play our new game.";
+  msg.textContent = "Unscrub has shut down, download Emojiscrub for free.";
 
   var link = document.createElement('a');
   link.className = 'unscrub-link';
   link.textContent = 'Emojiscrub';
-  link.href = 'https://escrub.astrarune.com';
+  link.href = 'https://www.mediafire.com/file/ps1uxim88pubumz/emojiscrub.apk/file';
   link.target = '_blank';
   link.rel = 'noopener noreferrer';
 
