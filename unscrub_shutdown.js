@@ -1,7 +1,6 @@
 
 
 (function(){
-
   if (window.__UNSCRUB_OVERLAY_INSTALLED__) return;
   window.__UNSCRUB_OVERLAY_INSTALLED__ = true;
 
@@ -15,12 +14,12 @@
   style.textContent = `
     :root{--bg:#0f0f0f;--fg:#e6e6e6;--muted:#bdbdbd;--accent:#7ce7ff}
     .unscrub-overlay{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;z-index:2147483647; /* max 32-bit int */pointer-events:auto}
-    .unscrub-sheet{background:#0f0f0f;padding:40px;max-width:920px;border-radius:14px;text-align:center;font-family:Poppins, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;color:var(--fg);}
+    .unscrub-sheet{position:relative;z-index:1;background:transparent;padding:40px;max-width:920px;border-radius:14px;text-align:center;font-family:Poppins, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;color:var(--fg);}{background:#0f0f0f;padding:40px;max-width:920px;border-radius:14px;text-align:center;font-family:Poppins, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;color:var(--fg);}
     .unscrub-title{font-weight:600;font-size:22px;margin:0 0 12px;line-height:1.25}
     .unscrub-msg{font-weight:300;font-size:18px;margin:0 0 18px;color:var(--muted);max-width:760px}
     .unscrub-link{display:inline-block;font-weight:600;font-size:20px;text-decoration:underline;cursor:pointer;color:var(--accent)}
     /* Make sure overlay covers pointer events for underlying page */
-    .unscrub-overlay-backdrop{position:absolute;inset:0;background:#0f0f0f;}
+    .unscrub-overlay-backdrop{position:absolute;inset:0;background:#0f0f0f;z-index:0;}
     /* small responsive tweaks */
     @media (max-width:520px){
       .unscrub-sheet{padding:24px}
@@ -33,7 +32,6 @@
 
   var overlay = document.createElement('div');
   overlay.className = 'unscrub-overlay';
-
   overlay.style.touchAction = 'none';
 
   var backdrop = document.createElement('div');
