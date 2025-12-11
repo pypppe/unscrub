@@ -1,7 +1,11 @@
+**Unscrub has now shut down, thank you for playing.**
+
+---
+
 # 🧩 Unscrub
 
 Welcome to the **official GitHub repository** for [Unscrub](https://unscrub.astrarune.com)!  
-Unscrub is a fun little **web-based word game** where you test your brainpower by unscrambling jumbled words.
+Unscrub was a fun little **web-based word game** where you test your brainpower by unscrambling jumbled words.
 
 ---
 
@@ -13,16 +17,16 @@ Unscrub is a fun little **web-based word game** where you test your brainpower b
 4. If you’re stuck, click **Show Answer**.  
 5. Once the round ends (win or lose), a new word appears!
 
-It’s simple, fast, and perfect for quick breaks or vocabulary practice!
+It was simple, fast, and perfect for quick breaks or vocabulary practice!
 
 ---
 
 ## 🚫 Ads & Promotions
 
 We believe ads ruin the fun.  
-**Unscrub** is a **completely free** web game — made **for students and anyone who loves word games**, not for profit.
+**Unscrub** was a **completely free** web game — made **for students and anyone who loved word games**, not for profit.
 
-This project exists purely **for fun and creativity**, not commercialization. ✨
+This project existed purely **for fun and creativity**, not commercialization. ✨
 
 ---
 
@@ -34,17 +38,17 @@ Your privacy is important to us.
 - Collect personal data  
 - Monitor your gameplay or usage  
 
-You can enjoy the game safely, without worrying about ads, tracking, or data collection.  
+You could enjoy the game safely, without worrying about ads, tracking, or data collection.  
 
 ---
 
 ## 💌 Feedback & Updates
 
-I release updates often to improve the experience!  
-If you have feedback, ideas, or bug reports, please reach out:
+I did release updates often to improve the experience!  
+If you have did have feedback, ideas, or bug reports, please reach out:
 
 📧 **Email:** [py@astrarune.com](mailto:py@astrarune.com)
 
-You can email via **Outlook**, **Gmail**, or **Yahoo! Mail** — whatever works best for you.
+You could have emailed via **Outlook**, **Gmail**, or **Yahoo! Mail** — whatever works best for you.
 
-Thank you for playing and supporting Unscrub! 💚
+Thank you for playing and supporting Unscrub while it lasted! 💚
