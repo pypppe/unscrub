@@ -47,12 +47,12 @@
 
   var msg = document.createElement('p');
   msg.className = 'unscrub-msg';
-  msg.textContent = "Unscrub has shut down due to bugs keep appearing, and no matter what we do. it doesn't go away, instead you can play our new game.";
+  msg.textContent = "We are shutting down Unscrub, forever. Read the “Advanced Blog” for more information.";
 
   var link = document.createElement('a');
   link.className = 'unscrub-link';
-  link.textContent = 'Emojiscrub';
-  link.href = 'https://escrub.astrarune.com';
+  link.textContent = 'Advanced Blog';
+  link.href = 'https://unscrub.astrarune.com/blog/advanced/end_of_unscrub';
   link.target = '_blank';
   link.rel = 'noopener noreferrer';
 
