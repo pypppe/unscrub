@@ -5,7 +5,7 @@
 # 🧩 Unscrub
 
 Welcome to the **official GitHub repository** for [Unscrub](https://unscrub.astrarune.com)!  
-Unscrub was a fun little **web-based word game** where you test your brainpower by unscrambling jumbled words.
+Unscrub was a fun little **web-based word game** where you tested your brainpower by unscrambling jumbled words.
 
 ---
 
