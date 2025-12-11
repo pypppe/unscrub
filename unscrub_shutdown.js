@@ -1,5 +1,7 @@
 
+
 (function(){
+
   if (window.__UNSCRUB_OVERLAY_INSTALLED__) return;
   window.__UNSCRUB_OVERLAY_INSTALLED__ = true;
 
@@ -18,7 +20,7 @@
     .unscrub-msg{font-weight:300;font-size:18px;margin:0 0 18px;color:var(--muted);max-width:760px}
     .unscrub-link{display:inline-block;font-weight:600;font-size:20px;text-decoration:underline;cursor:pointer;color:var(--accent)}
     /* Make sure overlay covers pointer events for underlying page */
-    .unscrub-overlay-backdrop{position:absolute;inset:0;background:rgba(15,15,15,0.0);}
+    .unscrub-overlay-backdrop{position:absolute;inset:0;background:#0f0f0f;}
     /* small responsive tweaks */
     @media (max-width:520px){
       .unscrub-sheet{padding:24px}
